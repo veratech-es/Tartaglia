@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>PT8-IISLAFE-visit_occurrence</name>
+    <name>PT8-IISLAFE-visit_occurrence_IISLAFE</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -434,20 +435,67 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>8-</note>
+      <xloc>496</xloc>
+      <yloc>32</yloc>
+      <width>21</width>
+      <heigth>26</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>La tabla VISIT_OCCURRENCE tenía 1166 filas y ahora carga 536. Total 1702
+ESTA NO SE DEBE EJECUTAR!!!!!!!!!!!!!</note>
+      <xloc>560</xloc>
+      <yloc>32</yloc>
+      <width>394</width>
+      <heigth>42</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>PT8_IISLaFe</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
+    <server>kira</server>
+    <type>MSSQLNATIVE</type>
     <access>Native</access>
-    <database>PT8_IISLaFe</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <database>OMOP</database>
+    <port>1433</port>
+    <username>erpss_omop</username>
+    <password>Encrypted 2be98afc86aa7f2aba616be55cc82bcc9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MSSQLNATIVE.instance</code>
+        <attribute>OMOP</attribute>
+      </attribute>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
         <attribute>N</attribute>
@@ -461,8 +509,16 @@
         <attribute>N</attribute>
       </attribute>
       <attribute>
+        <code>MSSQLUseIntegratedSecurity</code>
+        <attribute>false</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>5432</attribute>
+        <attribute>1433</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -603,7 +659,7 @@
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>public</schema>
+      <schema>tartaglia</schema>
       <table>person</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -647,7 +703,7 @@
       <schema_name/>
     </partitioning>
     <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
+    <schema>tartaglia</schema>
     <table>visit_occurrence</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -770,7 +826,7 @@
       <schema_name/>
     </partitioning>
     <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
+    <schema>tartaglia</schema>
     <table>correspondencia_visitas</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -970,7 +1026,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>C:\Users\benaven\Desktop\Tartaglia\PT4\Error_personid_VdH.txt</name>
+      <name>\\kabuto\Servicios\SAS_EG\01-ProyectosEGuide\02-Estudios\TARTAGLIA\PT8_Retinopatía Diabética\ETLs VERATECH\Errores flujo PENTAHO\Error_personid_VISITA.txt</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -1220,7 +1276,7 @@
     <dynamic_include_subfolders>N</dynamic_include_subfolders>
     <limit>0</limit>
     <file>
-      <name>C:\Users\benaven\Desktop\Tartaglia\PT8\IIS La Fe\p0082023-oftalmografia-lafe</name>
+      <name>C:\Users\18459029B\Desktop\retinopatia_s_</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1254,7 +1310,7 @@
     <valuename>idvisit</valuename>
     <use_database>Y</use_database>
     <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
+    <schema>tartaglia</schema>
     <seqname>visist_occurrence_id</seqname>
     <use_counter>N</use_counter>
     <counter_name/>

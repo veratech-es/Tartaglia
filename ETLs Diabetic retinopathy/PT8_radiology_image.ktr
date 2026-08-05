@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>PT8-IISLAFE_radiology_image</name>
+    <name>PT8-IISLAFE_radiology_image_IISLAFE</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -435,20 +435,68 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>10</note>
+      <xloc>144</xloc>
+      <yloc>576</yloc>
+      <width>23</width>
+      <heigth>26</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>La tabla radiology_image tiene 1326 filas (antes)
+La tabla radiology_image tiene 1219 filas
+</note>
+      <xloc>224</xloc>
+      <yloc>576</yloc>
+      <width>261</width>
+      <heigth>57</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>PT8_IISLaFe</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
+    <server>kira</server>
+    <type>MSSQLNATIVE</type>
     <access>Native</access>
-    <database>PT8_IISLaFe</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <database>OMOP</database>
+    <port>1433</port>
+    <username>erpss_omop</username>
+    <password>Encrypted 2be98afc86aa7f2aba616be55cc82bcc9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MSSQLNATIVE.instance</code>
+        <attribute>OMOP</attribute>
+      </attribute>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
         <attribute>N</attribute>
@@ -462,8 +510,16 @@
         <attribute>N</attribute>
       </attribute>
       <attribute>
+        <code>MSSQLUseIntegratedSecurity</code>
+        <attribute>false</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>5432</attribute>
+        <attribute>1433</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -937,7 +993,7 @@
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>public</schema>
+      <schema>tartaglia</schema>
       <table>condition_occurrence</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -985,7 +1041,7 @@
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>public</schema>
+      <schema>tartaglia</schema>
       <table>person</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -1033,7 +1089,7 @@
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>public</schema>
+      <schema>tartaglia</schema>
       <table>person</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -1081,7 +1137,7 @@
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>public</schema>
+      <schema>tartaglia</schema>
       <table>correspondencia_radiology_occurrence</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -1290,7 +1346,7 @@
       <schema_name/>
     </partitioning>
     <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
+    <schema>tartaglia</schema>
     <table>condition_occurrence</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -1354,7 +1410,7 @@
       <schema_name/>
     </partitioning>
     <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
+    <schema>tartaglia</schema>
     <table>radiology_image</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
@@ -1462,7 +1518,7 @@
       <schema_name/>
     </partitioning>
     <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
+    <schema>tartaglia</schema>
     <table>observation</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -2088,7 +2144,7 @@
       <schema_name/>
     </partitioning>
     <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
+    <schema>tartaglia</schema>
     <table>correspondencia_radiology_image</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
@@ -2228,7 +2284,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>C:\Users\benaven\Desktop\Tartaglia\PT8\IIS La Fe\Error_personid_radiologyimage.txt</name>
+      <name>\\kabuto\Servicios\SAS_EG\01-ProyectosEGuide\02-Estudios\TARTAGLIA\PT8_Retinopatía Diabética\ETLs VERATECH\Errores flujo PENTAHO\Error_personid_radiologyimage.txt</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -2741,6 +2797,7 @@
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
     <defaultPathLeafToNull>Y</defaultPathLeafToNull>
+    <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
       <name/>
@@ -3847,7 +3904,7 @@
     <dynamic_include_subfolders>N</dynamic_include_subfolders>
     <limit>0</limit>
     <file>
-      <name>C:\Users\benaven\Desktop\Tartaglia\PT8\IIS La Fe\p0082023-oftalmografia-lafe</name>
+      <name>C:\Users\18459029B\Desktop\retinopatia_s_</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -3881,7 +3938,7 @@
     <valuename>condition_occurrence_id</valuename>
     <use_database>Y</use_database>
     <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
+    <schema>tartaglia</schema>
     <seqname>condition_occurrence_id</seqname>
     <use_counter>N</use_counter>
     <counter_name/>
@@ -3916,7 +3973,7 @@
     <valuename>radiology_image_id</valuename>
     <use_database>Y</use_database>
     <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
+    <schema>tartaglia</schema>
     <seqname>radiology_image_id</seqname>
     <use_counter>N</use_counter>
     <counter_name/>
@@ -3951,7 +4008,7 @@
     <valuename>observation_id</valuename>
     <use_database>Y</use_database>
     <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
+    <schema>tartaglia</schema>
     <seqname>observation_id</seqname>
     <use_counter>N</use_counter>
     <counter_name/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>PT8-IISLAFE_radiology_occurrence</name>
+    <name>PT8-IISLAFE_radiology_occurrence_IISLAFE</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -435,20 +435,66 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>9-</note>
+      <xloc>1072</xloc>
+      <yloc>16</yloc>
+      <width>21</width>
+      <heigth>26</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>La tabla radiology_occurrence tiene 536 filas</note>
+      <xloc>1152</xloc>
+      <yloc>16</yloc>
+      <width>243</width>
+      <heigth>26</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>PT8_IISLaFe</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
+    <server>kira</server>
+    <type>MSSQLNATIVE</type>
     <access>Native</access>
-    <database>PT8_IISLaFe</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <database>OMOP</database>
+    <port>1433</port>
+    <username>erpss_omop</username>
+    <password>Encrypted 2be98afc86aa7f2aba616be55cc82bcc9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MSSQLNATIVE.instance</code>
+        <attribute>OMOP</attribute>
+      </attribute>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
         <attribute>N</attribute>
@@ -462,8 +508,16 @@
         <attribute>N</attribute>
       </attribute>
       <attribute>
+        <code>MSSQLUseIntegratedSecurity</code>
+        <attribute>false</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>5432</attribute>
+        <attribute>1433</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -496,11 +550,6 @@
     <hop>
       <from>Búsqueda personid</from>
       <to>Paciente no nulo</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Búsqueda sesion</from>
-      <to>Ordenar idsession</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -554,11 +603,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Ordenar idsession</from>
-      <to>Secuencia id_radiology_occurrence</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Ordenar participant_id</from>
       <to>Unión por paciente</to>
       <enabled>Y</enabled>
@@ -591,11 +635,6 @@
     <hop>
       <from>Paciente no nulo</from>
       <to>Añadir error id</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Paciente no nulo</from>
-      <to>Búsqueda sesion</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -683,6 +722,11 @@
       <to>Filtrar imágenes</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Paciente no nulo</from>
+      <to>Secuencia id_radiology_occurrence</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Añadir error id</name>
@@ -739,7 +783,7 @@
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>public</schema>
+      <schema>tartaglia</schema>
       <table>person</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -768,54 +812,6 @@
     <GUI>
       <xloc>1504</xloc>
       <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Búsqueda sesion</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>PT8_IISLaFe</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>public</schema>
-      <table>visit_occurrence</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>idsession</name>
-        <field>visit_source_value</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>visit_occurrence_id</name>
-        <rename>visit_occurrence_id</rename>
-        <default/>
-        <type>None</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1504</xloc>
-      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1492,7 +1488,7 @@
       <schema_name/>
     </partitioning>
     <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
+    <schema>tartaglia</schema>
     <table>correspondencia_radiology_occurrence</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
@@ -1608,7 +1604,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>C:\Users\benaven\Desktop\Tartaglia\PT4\Error_personid_VdH.txt</name>
+      <name>\\kabuto\Servicios\SAS_EG\01-ProyectosEGuide\02-Estudios\TARTAGLIA\PT8_Retinopatía Diabética\ETLs VERATECH\Errores flujo PENTAHO\Error_personid_RADIOLOGY_OCCURRENCE.txt</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -2015,48 +2011,6 @@
     </GUI>
   </step>
   <step>
-    <name>Ordenar idsession</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>idsession</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1504</xloc>
-      <yloc>640</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Ordenar participant_id</name>
     <type>SortRows</type>
     <description/>
@@ -2319,7 +2273,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Búsqueda sesion</send_true_to>
+    <send_true_to>Secuencia id_radiology_occurrence</send_true_to>
     <send_false_to>Añadir error id</send_false_to>
     <compare>
       <condition>
@@ -2542,7 +2496,7 @@
     <dynamic_include_subfolders>N</dynamic_include_subfolders>
     <limit>0</limit>
     <file>
-      <name>C:\Users\benaven\Desktop\Tartaglia\PT8\IIS La Fe\p0082023-oftalmografia-lafe</name>
+      <name>C:\Users\18459029B\Desktop\retinopatia_s_</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -2576,7 +2530,7 @@
     <valuename>radiology_occurrence_id</valuename>
     <use_database>Y</use_database>
     <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
+    <schema>tartaglia</schema>
     <seqname>radiology_occurrence_id</seqname>
     <use_counter>N</use_counter>
     <counter_name/>
@@ -2794,7 +2748,7 @@
       <schema_name/>
     </partitioning>
     <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
+    <schema>tartaglia</schema>
     <table>radiology_occurrence</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -2846,10 +2800,6 @@
       <field>
         <column_name>anatomic_site_concept_id</column_name>
         <stream_name>anatomic_site_concept_id</stream_name>
-      </field>
-      <field>
-        <column_name>visit_occurrence_id</column_name>
-        <stream_name>visit_occurrence_id</stream_name>
       </field>
       <field>
         <column_name>image_total_count</column_name>

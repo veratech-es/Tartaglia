@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>PT8_Variables_medidas</name>
+    <name>PT8_Variables_person_IISLAFE</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -427,27 +428,73 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/03/28 14:37:59.299</created_date>
+    <created_date>2023/03/28 11:52:37.248</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/03/28 14:37:59.299</modified_date>
+    <modified_date>2023/03/28 11:52:37.248</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>2-</note>
+      <xloc>400</xloc>
+      <yloc>48</yloc>
+      <width>21</width>
+      <heigth>26</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>64</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>La tabla person tiene 513 filas</note>
+      <xloc>464</xloc>
+      <yloc>48</yloc>
+      <width>165</width>
+      <heigth>26</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>PT8_IISLaFe</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
+    <server>kira</server>
+    <type>MSSQLNATIVE</type>
     <access>Native</access>
-    <database>PT8_IISLaFe</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <database>OMOP</database>
+    <port>1433</port>
+    <username>erpss_omop</username>
+    <password>Encrypted 2be98afc86aa7f2aba616be55cc82bcc9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MSSQLNATIVE.instance</code>
+        <attribute>OMOP</attribute>
+      </attribute>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
         <attribute>N</attribute>
@@ -461,8 +508,16 @@
         <attribute>N</attribute>
       </attribute>
       <attribute>
+        <code>MSSQLUseIntegratedSecurity</code>
+        <attribute>false</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>5432</attribute>
+        <attribute>1433</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -488,139 +543,84 @@
   </connection>
   <order>
     <hop>
-      <from>HbAc1</from>
-      <to>Constantes HbAc1</to>
+      <from>Constantes race &amp; ethnicity</from>
+      <to>Género a entero</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Visuializar</from>
-      <to>HbAc1</to>
+      <from>Filtro nacimientos y sexos nulos</from>
+      <to>Añadir tipoError</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Secuencia measurement</from>
-      <to>Conexion measurement</to>
+      <from>Filtro nacimientos y sexos nulos</from>
+      <to>Separar año, mes, dia</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>TAD</from>
-      <to>Constantes TAD</to>
+      <from>Mapeo género</from>
+      <to>Constantes race &amp; ethnicity</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Visuializar</from>
-      <to>TAD</to>
+      <from>Añadir tipoError</from>
+      <to>Salida Fichero de Texto</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>TAS</from>
-      <to>Constantes TAS</to>
+      <from>Separar año, mes, dia</from>
+      <to>Mapeo género</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Visuializar</from>
-      <to>TAS</to>
+      <from>Búsqueda en base de datos</from>
+      <to>Filtrar pacientes existentes</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Visuializar</from>
-      <to>FG</to>
+      <from>Género a entero</from>
+      <to>Salida Tabla</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>FG</from>
-      <to>Constantes FG</to>
+      <from>Ordenar filas</from>
+      <to>Agrupar por</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Alb/cr</from>
-      <to>Constantes Alb/Cr</to>
+      <from>Agrupar por</from>
+      <to>Búsqueda en base de datos</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Visuializar</from>
-      <to>Alb/cr</to>
+      <from>Búsqueda en base de datos 2</from>
+      <to>Filtrar pacientes existentes 2 </to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Constantes HbAc1</from>
-      <to>Fecha meas y source HbAc1</to>
+      <from>Filtrar pacientes existentes</from>
+      <to>Búsqueda en base de datos 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Fecha meas y source HbAc1</from>
-      <to>Secuencia measurement</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Constantes TAD</from>
-      <to>Fecha meas y source TAD</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Constantes TAS</from>
-      <to>Fecha meas y source TAS</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Constantes FG</from>
-      <to>Fecha meas y source FG</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Constantes Alb/Cr</from>
-      <to>Fecha meas y source Cr_Alb</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Fecha meas y source TAD</from>
-      <to>Secuencia measurement</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Fecha meas y source TAS</from>
-      <to>Secuencia measurement</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Fecha meas y source FG</from>
-      <to>Secuencia measurement</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Fecha meas y source Cr_Alb</from>
-      <to>Secuencia measurement</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>PT8 Variables</from>
+      <from>Variables PT8</from>
       <to>Campos de interés</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Campos de interés</from>
-      <to>Ordenar pacientes</to>
+      <to>Ordenar filas</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Búsqueda en base de datos</from>
-      <to>Filtrar pacientes no nulos</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Ordenar pacientes</from>
-      <to>Búsqueda en base de datos</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filtrar pacientes no nulos</from>
-      <to>Visuializar</to>
+      <from>Filtrar pacientes existentes 2 </from>
+      <to>Filtro nacimientos y sexos nulos</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Alb/cr</name>
-    <type>FilterRows</type>
+    <name>Agrupar por</name>
+    <type>GroupBy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -629,29 +629,27 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Constantes Alb/Cr</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>Alb/cr</leftvalue>
-            <function>IS NOT NULL</function>
-            <rightvalue/>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>F_Alb/cr</leftvalue>
-            <function>IS NOT NULL</function>
-            <rightvalue/>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
+    <all_rows>N</all_rows>
+    <ignore_aggregate>N</ignore_aggregate>
+    <field_ignore/>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>grp</prefix>
+    <add_linenr>N</add_linenr>
+    <linenr_fieldname/>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>Id_Paciente</name>
+      </field>
+      <field>
+        <name>Sexo</name>
+      </field>
+      <field>
+        <name>F_Nacimiento</name>
+      </field>
+    </group>
+    <fields>
+      </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -661,8 +659,47 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>896</xloc>
-      <yloc>432</yloc>
+      <xloc>336</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Añadir tipoError</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>tipoError</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Error en edad</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1104</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -682,20 +719,20 @@
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>public</schema>
-      <table>person</table>
+      <schema>tartaglia</schema>
+      <table>correspondencia_pacientes</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
         <name>Id_Paciente</name>
-        <field>person_source_value</field>
+        <field>source_id</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-        <name>person_id</name>
-        <rename>person_id</rename>
+        <name>omop_id</name>
+        <rename>omop_id</rename>
         <default/>
         <type>Integer</type>
       </value>
@@ -709,8 +746,56 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>112</yloc>
+      <xloc>448</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Búsqueda en base de datos 2</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>PT8_IISLaFe</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>tartaglia</schema>
+      <table>person</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>Id_Paciente</name>
+        <field>person_source_value</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>person_id</name>
+        <rename>idperson</rename>
+        <default/>
+        <type>None</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -730,31 +815,10 @@
         <name>Id_Paciente</name>
       </field>
       <field>
-        <name>HbA1c</name>
+        <name>Sexo</name>
       </field>
       <field>
-        <name>F_HbA1c</name>
-      </field>
-      <field>
-        <name>TAD</name>
-      </field>
-      <field>
-        <name>F_RegistroTA</name>
-      </field>
-      <field>
-        <name>TAS</name>
-      </field>
-      <field>
-        <name>FG</name>
-      </field>
-      <field>
-        <name>F_FG</name>
-      </field>
-      <field>
-        <name>Alb/cr</name>
-      </field>
-      <field>
-        <name>F_Alb/cr</name>
+        <name>F_Nacimiento</name>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -768,13 +832,13 @@
     </remotesteps>
     <GUI>
       <xloc>144</xloc>
-      <yloc>112</yloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Conexion measurement</name>
-    <type>TableOutput</type>
+    <name>Constantes race &amp; ethnicity</name>
+    <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -783,55 +847,30 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
-    <table>measurement</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
     <fields>
       <field>
-        <column_name>measurement_id</column_name>
-        <stream_name>idmeasurement</stream_name>
+        <name>race</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
       <field>
-        <column_name>person_id</column_name>
-        <stream_name>person_id</stream_name>
-      </field>
-      <field>
-        <column_name>measurement_concept_id</column_name>
-        <stream_name>measconcept_id</stream_name>
-      </field>
-      <field>
-        <column_name>measurement_date</column_name>
-        <stream_name>fecha_meas</stream_name>
-      </field>
-      <field>
-        <column_name>measurement_type_concept_id</column_name>
-        <stream_name>unittype_id</stream_name>
-      </field>
-      <field>
-        <column_name>unit_concept_id</column_name>
-        <stream_name>unitconcept_id</stream_name>
-      </field>
-      <field>
-        <column_name>unit_source_value</column_name>
-        <stream_name>unitvalue_source</stream_name>
-      </field>
-      <field>
-        <column_name>measurement_source_value</column_name>
-        <stream_name>source_meas</stream_name>
+        <name>ethnicity</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
     <attributes/>
@@ -843,388 +882,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1488</xloc>
+      <xloc>1376</xloc>
       <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Constantes Alb/Cr</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>measconcept_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>3020682</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unitconcept_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>8723</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unittype_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>32856</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unitvalue_source</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>mg/g</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>992</xloc>
-      <yloc>432</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Constantes FG</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>measconcept_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>44790183</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unitconcept_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>710208</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unittype_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>32856</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unitvalue_source</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>mL/min/m2</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>992</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Constantes HbAc1</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>measconcept_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>4184637</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unitconcept_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>8554</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unittype_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>32856</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unitvalue_source</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>%</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>992</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Constantes TAD</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>measconcept_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>4154790</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unitconcept_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>8876</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unittype_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>32856</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unitvalue_source</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>mmHg</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>992</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Constantes TAS</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>measconcept_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>4152194</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unitconcept_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>8876</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unittype_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>32856</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>unitvalue_source</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>mmHg</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>992</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>FG</name>
+    <name>Filtrar pacientes existentes</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1234,23 +898,92 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Constantes FG</send_true_to>
+    <send_true_to>Búsqueda en base de datos 2</send_true_to>
     <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>omop_id</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filtrar pacientes existentes 2 </name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Filtro nacimientos y sexos nulos</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>idperson</leftvalue>
+        <function>IS NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>944</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filtro nacimientos y sexos nulos</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Separar año, mes, dia</send_true_to>
+    <send_false_to>Añadir tipoError</send_false_to>
     <compare>
       <condition>
         <negated>N</negated>
         <conditions>
           <condition>
             <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>FG</leftvalue>
+            <leftvalue>F_Nacimiento</leftvalue>
             <function>IS NOT NULL</function>
             <rightvalue/>
           </condition>
           <condition>
             <negated>N</negated>
             <operator>AND</operator>
-            <leftvalue>F_FG</leftvalue>
+            <leftvalue>Sexo</leftvalue>
             <function>IS NOT NULL</function>
             <rightvalue/>
           </condition>
@@ -1266,14 +999,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>896</xloc>
-      <yloc>352</yloc>
+      <xloc>1104</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Fecha meas y source Cr_Alb</name>
-    <type>Calculator</type>
+    <name>Género a entero</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1282,37 +1015,26 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <failIfNoFile>Y</failIfNoFile>
-    <calculation>
-      <field_name>fecha_meas</field_name>
-      <calc_type>COPY_FIELD</calc_type>
-      <field_a>F_Alb/cr</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>source_meas</field_name>
-      <calc_type>COPY_FIELD</calc_type>
-      <field_a>Alb/cr</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>sexoOMOP</name>
+        <rename>sexoOMOP</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1322,14 +1044,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1136</xloc>
-      <yloc>432</yloc>
+      <xloc>1376</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Fecha meas y source FG</name>
-    <type>Calculator</type>
+    <name>Mapeo género</name>
+    <type>ValueMapper</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1338,37 +1060,23 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <failIfNoFile>Y</failIfNoFile>
-    <calculation>
-      <field_name>fecha_meas</field_name>
-      <calc_type>COPY_FIELD</calc_type>
-      <field_a>F_FG</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>source_meas</field_name>
-      <calc_type>COPY_FIELD</calc_type>
-      <field_a>FG</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
+    <field_to_use>Sexo</field_to_use>
+    <target_field>sexoOMOP</target_field>
+    <non_match_default>0</non_match_default>
+    <fields>
+      <field>
+        <source_value>1</source_value>
+        <target_value>8532</target_value>
+      </field>
+      <field>
+        <source_value>0</source_value>
+        <target_value>8507</target_value>
+      </field>
+      <field>
+        <source_value>None</source_value>
+        <target_value>0</target_value>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1378,269 +1086,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1136</xloc>
-      <yloc>352</yloc>
+      <xloc>1376</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Fecha meas y source HbAc1</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <failIfNoFile>Y</failIfNoFile>
-    <calculation>
-      <field_name>fecha_meas</field_name>
-      <calc_type>COPY_FIELD</calc_type>
-      <field_a>F_HbA1c</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>source_meas</field_name>
-      <calc_type>COPY_FIELD</calc_type>
-      <field_a>HbA1c</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1136</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Fecha meas y source TAD</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <failIfNoFile>Y</failIfNoFile>
-    <calculation>
-      <field_name>fecha_meas</field_name>
-      <calc_type>COPY_FIELD</calc_type>
-      <field_a>F_RegistroTA</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>source_meas</field_name>
-      <calc_type>COPY_FIELD</calc_type>
-      <field_a>TAD</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1136</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Fecha meas y source TAS</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <failIfNoFile>Y</failIfNoFile>
-    <calculation>
-      <field_name>fecha_meas</field_name>
-      <calc_type>COPY_FIELD</calc_type>
-      <field_a>F_RegistroTA</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>source_meas</field_name>
-      <calc_type>COPY_FIELD</calc_type>
-      <field_a>TAS</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1136</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filtrar pacientes no nulos</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Visuializar</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>person_id</leftvalue>
-            <function>IS NOT NULL</function>
-            <rightvalue/>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>576</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>HbAc1</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Constantes HbAc1</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>HbA1c</leftvalue>
-            <function>IS NOT NULL</function>
-            <rightvalue/>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>F_HbA1c</leftvalue>
-            <function>IS NOT NULL</function>
-            <rightvalue/>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>896</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ordenar pacientes</name>
+    <name>Ordenar filas</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1676,13 +1128,253 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>112</yloc>
+      <xloc>240</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>PT8 Variables</name>
+    <name>Salida Fichero de Texto</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>;</separator>
+    <enclosure/>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding>UTF-8</encoding>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>\\kabuto\Servicios\SAS_EG\01-ProyectosEGuide\02-Estudios\TARTAGLIA\PT8_Retinopatía Diabética\ETLs VERATECH\Errores flujo PENTAHO\Error_person.txt</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>Y</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>Y</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>Y</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>Id_Paciente</name>
+        <type>None</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>F_Nacimiento</name>
+        <type>None</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Sexo</name>
+        <type>None</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Salida Tabla</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>PT8_IISLaFe</connection>
+    <schema>tartaglia</schema>
+    <table>person</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+      <field>
+        <column_name>gender_concept_id</column_name>
+        <stream_name>sexoOMOP</stream_name>
+      </field>
+      <field>
+        <column_name>year_of_birth</column_name>
+        <stream_name>year_birthday</stream_name>
+      </field>
+      <field>
+        <column_name>month_of_birth</column_name>
+        <stream_name>month_birthday</stream_name>
+      </field>
+      <field>
+        <column_name>day_of_birth</column_name>
+        <stream_name>day_birthday</stream_name>
+      </field>
+      <field>
+        <column_name>race_concept_id</column_name>
+        <stream_name>race</stream_name>
+      </field>
+      <field>
+        <column_name>ethnicity_concept_id</column_name>
+        <stream_name>ethnicity</stream_name>
+      </field>
+      <field>
+        <column_name>person_source_value</column_name>
+        <stream_name>Id_Paciente</stream_name>
+      </field>
+      <field>
+        <column_name>person_id</column_name>
+        <stream_name>omop_id</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1376</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Separar año, mes, dia</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>year_birthday</field_name>
+      <calc_type>YEAR_OF_DATE</calc_type>
+      <field_a>F_Nacimiento</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>0</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>month_birthday</field_name>
+      <calc_type>MONTH_OF_DATE</calc_type>
+      <field_a>F_Nacimiento</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>0</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>day_birthday</field_name>
+      <calc_type>DAY_OF_MONTH</calc_type>
+      <field_a>F_Nacimiento</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>0</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Variables PT8</name>
     <type>CsvInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1692,7 +1384,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\Users\benaven\Desktop\Tartaglia\PT8\Pacientes prueba IISLaFe.csv</filename>
+    <filename>C:\Users\18459029B\Desktop\[PT8] ETLS IISLaFe (carpeta compartida)\RETINOS_PENTAHO_V2_copia.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -1707,6 +1399,17 @@
     <format>mixed</format>
     <encoding/>
     <fields>
+      <field>
+        <name>ID_imagen</name>
+        <type>String</type>
+        <format/>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>33</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
       <field>
         <name>Id_Paciente</name>
         <type>String</type>
@@ -1736,7 +1439,7 @@
         <currency>€</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>10</length>
+        <length>6</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -1747,7 +1450,7 @@
         <currency>€</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>115</length>
+        <length>81</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -1809,10 +1512,10 @@
       <field>
         <name>HbA1c</name>
         <type>Number</type>
-        <format>#,###,###.#</format>
+        <format>#.#</format>
         <currency>€</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <decimal>,</decimal>
+        <group>.</group>
         <length>4</length>
         <precision>1</precision>
         <trim_type>none</trim_type>
@@ -1940,24 +1643,24 @@
       </field>
       <field>
         <name>TAD</name>
-        <type>Number</type>
-        <format>#.#</format>
+        <type>Integer</type>
+        <format>#</format>
         <currency>€</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>6</length>
-        <precision>3</precision>
+        <length>15</length>
+        <precision>0</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
         <name>TAS</name>
-        <type>Number</type>
-        <format>#.#</format>
+        <type>Integer</type>
+        <format>#</format>
         <currency>€</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>7</length>
-        <precision>3</precision>
+        <length>15</length>
+        <precision>0</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
@@ -1993,6 +1696,17 @@
         <precision>0</precision>
         <trim_type>none</trim_type>
       </field>
+      <field>
+        <name>Lateralidad</name>
+        <type>String</type>
+        <format/>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2003,164 +1717,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Secuencia measurement</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <valuename>idmeasurement</valuename>
-    <use_database>Y</use_database>
-    <connection>PT8_IISLaFe</connection>
-    <schema>public</schema>
-    <seqname>measurement_id</seqname>
-    <use_counter>N</use_counter>
-    <counter_name/>
-    <start_at>1</start_at>
-    <increment_by>1</increment_by>
-    <max_value>999999999</max_value>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1328</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>TAD</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Constantes TAD</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>TAD</leftvalue>
-            <function>IS NOT NULL</function>
-            <rightvalue/>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>F_RegistroTA</leftvalue>
-            <function>IS NOT NULL</function>
-            <rightvalue/>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>896</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>TAS</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Constantes TAS</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>TAS</leftvalue>
-            <function>IS NOT NULL</function>
-            <rightvalue/>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>F_RegistroTA</leftvalue>
-            <function>IS NOT NULL</function>
-            <rightvalue/>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>896</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Visuializar</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>736</xloc>
-      <yloc>112</yloc>
+      <xloc>32</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
