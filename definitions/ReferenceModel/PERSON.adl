@@ -1,0 +1,53 @@
+archetype (adl_version=1.4)
+    OMOP-CDM-PERSON.PERSON.v1
+
+concept
+    [PERSONat]
+
+language
+    original_language = <[ISO_639-1::EN-US]>
+
+description
+    original_author = <
+        ["original_author"] = <"VeraTech">
+    >
+    lifecycle_state = <"DRAFT">
+    details = <
+        ["EN-US"] = <
+            language = <[ISO_639-1::EN-US]>
+            purpose = <"general archetype for mapping to data sources">
+            copyright = <"Copyright(c)2006-2008 VeraTech">
+            use = <"mapping">
+            misuse = <"as a domain concept">
+        >
+    >
+
+definition
+    PERSON[PERSONat] occurrences matches {1..1} matches {  -- 
+        person_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        gender_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        year_of_birth existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        month_of_birth existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        day_of_birth existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        birth_datetime existence matches {0..1} matches {yyyy-mm-ddThh:mm:ss}
+        race_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        ethnicity_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        location_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        provider_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        care_site_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        person_source_value existence matches {0..1} matches {/.*/}
+        gender_source_value existence matches {0..1} matches {/.*/}
+        gender_source_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        race_source_value existence matches {0..1} matches {/.*/}
+        race_source_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        ethnicity_source_value existence matches {0..1} matches {/.*/}
+        ethnicity_source_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+    }
+
+ontology
+    term_definitions = <
+        ["EN"] = <
+            items = <
+            >
+        >
+    >

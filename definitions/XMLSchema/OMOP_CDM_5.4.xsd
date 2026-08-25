@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  XML Schema (XSD) for the OMOP Common Data Model (CDM) v5.4
+
+  Column names follow the CDM DDL exactly (snake_case). NOT NULL columns are
+  required (minOccurs="1", the xs:element default); nullable columns carry
+  minOccurs="0". SQL types are mapped directly to standard XSD built-in types
+  (no intermediate custom simple types):
+    integer     -> xs:int
+    varchar(n)  -> xs:string  (length constraint from the DDL is noted in an
+                   xs:appinfo/xs:documentation annotation, not enforced structurally)
+    NUMERIC     -> xs:decimal
+    date        -> xs:date
+    TIMESTAMP   -> xs:dateTime
+    TEXT        -> xs:string
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:omop="http://ohdsi.org/omop/cdm/5.4"
+           targetNamespace="http://ohdsi.org/omop/cdm/5.4"
+           xmlns="http://ohdsi.org/omop/cdm/5.4"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           version="5.4">
+
+  <!-- ==================================================================== -->
+  <!-- OMOP CDM TABLES                                                       -->
+  <!-- ==================================================================== -->
+
+  <!-- ==================================================================== -->
+  <!-- CLINICAL DATA TABLES -->
+  <!-- ==================================================================== -->
+
+  <xs:element name="PERSON" type="PERSON"/>
+  <xs:complexType name="PERSON">
+    <xs:sequence>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="gender_concept_id" type="xs:int"/>
+      <xs:element name="year_of_birth" type="xs:int"/>
+      <xs:element name="month_of_birth" type="xs:int" minOccurs="0"/>
+      <xs:element name="day_of_birth" type="xs:int" minOccurs="0"/>
+      <xs:element name="birth_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="race_concept_id" type="xs:int"/>
+      <xs:element name="ethnicity_concept_id" type="xs:int"/>
+      <xs:element name="location_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="provider_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="care_site_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="person_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="gender_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="gender_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="race_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="race_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="ethnicity_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="ethnicity_source_concept_id" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="OBSERVATION_PERIOD" type="OBSERVATION_PERIOD"/>
+  <xs:complexType name="OBSERVATION_PERIOD">
+    <xs:sequence>
+      <xs:element name="observation_period_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="observation_period_start_date" type="xs:date"/>
+      <xs:element name="observation_period_end_date" type="xs:date"/>
+      <xs:element name="period_type_concept_id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="VISIT_OCCURRENCE" type="VISIT_OCCURRENCE"/>
+  <xs:complexType name="VISIT_OCCURRENCE">
+    <xs:sequence>
+      <xs:element name="visit_occurrence_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="visit_concept_id" type="xs:int"/>
+      <xs:element name="visit_start_date" type="xs:date"/>
+      <xs:element name="visit_start_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="visit_end_date" type="xs:date"/>
+      <xs:element name="visit_end_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="visit_type_concept_id" type="xs:int"/>
+      <xs:element name="provider_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="care_site_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="visit_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="admitted_from_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="admitted_from_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="discharged_to_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="discharged_to_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="preceding_visit_occurrence_id" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="VISIT_DETAIL" type="VISIT_DETAIL"/>
+  <xs:complexType name="VISIT_DETAIL">
+    <xs:sequence>
+      <xs:element name="visit_detail_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="visit_detail_concept_id" type="xs:int"/>
+      <xs:element name="visit_detail_start_date" type="xs:date"/>
+      <xs:element name="visit_detail_start_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="visit_detail_end_date" type="xs:date"/>
+      <xs:element name="visit_detail_end_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="visit_detail_type_concept_id" type="xs:int"/>
+      <xs:element name="provider_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="care_site_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_detail_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="visit_detail_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="admitted_from_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="admitted_from_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="discharged_to_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="discharged_to_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="preceding_visit_detail_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="parent_visit_detail_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_occurrence_id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="CONDITION_OCCURRENCE" type="CONDITION_OCCURRENCE"/>
+  <xs:complexType name="CONDITION_OCCURRENCE">
+    <xs:sequence>
+      <xs:element name="condition_occurrence_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="condition_concept_id" type="xs:int"/>
+      <xs:element name="condition_start_date" type="xs:date"/>
+      <xs:element name="condition_start_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="condition_end_date" type="xs:date" minOccurs="0"/>
+      <xs:element name="condition_end_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="condition_type_concept_id" type="xs:int"/>
+      <xs:element name="condition_status_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="stop_reason" type="xs:string" minOccurs="0"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="provider_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_occurrence_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_detail_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="condition_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="condition_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="condition_status_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="DRUG_EXPOSURE" type="DRUG_EXPOSURE"/>
+  <xs:complexType name="DRUG_EXPOSURE">
+    <xs:sequence>
+      <xs:element name="drug_exposure_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="drug_concept_id" type="xs:int"/>
+      <xs:element name="drug_exposure_start_date" type="xs:date"/>
+      <xs:element name="drug_exposure_start_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="drug_exposure_end_date" type="xs:date"/>
+      <xs:element name="drug_exposure_end_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="verbatim_end_date" type="xs:date" minOccurs="0"/>
+      <xs:element name="drug_type_concept_id" type="xs:int"/>
+      <xs:element name="stop_reason" type="xs:string" minOccurs="0"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="refills" type="xs:int" minOccurs="0"/>
+      <xs:element name="quantity" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="days_supply" type="xs:int" minOccurs="0"/>
+      <xs:element name="sig" type="xs:string" minOccurs="0"/>
+      <xs:element name="route_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="lot_number" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="provider_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_occurrence_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_detail_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="drug_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="drug_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="route_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="dose_unit_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="PROCEDURE_OCCURRENCE" type="PROCEDURE_OCCURRENCE"/>
+  <xs:complexType name="PROCEDURE_OCCURRENCE">
+    <xs:sequence>
+      <xs:element name="procedure_occurrence_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="procedure_concept_id" type="xs:int"/>
+      <xs:element name="procedure_date" type="xs:date"/>
+      <xs:element name="procedure_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="procedure_end_date" type="xs:date" minOccurs="0"/>
+      <xs:element name="procedure_end_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="procedure_type_concept_id" type="xs:int"/>
+      <xs:element name="modifier_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="quantity" type="xs:int" minOccurs="0"/>
+      <xs:element name="provider_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_occurrence_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_detail_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="procedure_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="procedure_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="modifier_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="DEVICE_EXPOSURE" type="DEVICE_EXPOSURE"/>
+  <xs:complexType name="DEVICE_EXPOSURE">
+    <xs:sequence>
+      <xs:element name="device_exposure_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="device_concept_id" type="xs:int"/>
+      <xs:element name="device_exposure_start_date" type="xs:date"/>
+      <xs:element name="device_exposure_start_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="device_exposure_end_date" type="xs:date" minOccurs="0"/>
+      <xs:element name="device_exposure_end_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="device_type_concept_id" type="xs:int"/>
+      <xs:element name="unique_device_id" type="xs:string" minOccurs="0"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="production_id" type="xs:string" minOccurs="0"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="quantity" type="xs:int" minOccurs="0"/>
+      <xs:element name="provider_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_occurrence_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_detail_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="device_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="device_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="unit_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="unit_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="unit_source_concept_id" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="MEASUREMENT" type="MEASUREMENT"/>
+  <xs:complexType name="MEASUREMENT">
+    <xs:sequence>
+      <xs:element name="measurement_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="measurement_concept_id" type="xs:int"/>
+      <xs:element name="measurement_date" type="xs:date"/>
+      <xs:element name="measurement_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="measurement_time" type="xs:string" minOccurs="0"> <!-- varchar(10) -->
+      </xs:element>
+      <xs:element name="measurement_type_concept_id" type="xs:int"/>
+      <xs:element name="operator_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="value_as_number" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="value_as_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="unit_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="range_low" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="range_high" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="provider_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_occurrence_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_detail_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="measurement_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="measurement_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="unit_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="unit_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="value_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="measurement_event_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="meas_event_field_concept_id" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="OBSERVATION" type="OBSERVATION"/>
+  <xs:complexType name="OBSERVATION">
+    <xs:sequence>
+      <xs:element name="observation_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="observation_concept_id" type="xs:int"/>
+      <xs:element name="observation_date" type="xs:date"/>
+      <xs:element name="observation_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="observation_type_concept_id" type="xs:int"/>
+      <xs:element name="value_as_number" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="value_as_string" type="xs:string" minOccurs="0"> <!-- varchar(60) -->
+      </xs:element>
+      <xs:element name="value_as_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="qualifier_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="unit_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="provider_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_occurrence_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_detail_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="observation_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="observation_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="unit_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="qualifier_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="value_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="observation_event_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="obs_event_field_concept_id" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="DEATH" type="DEATH"/>
+  <xs:complexType name="DEATH">
+    <xs:sequence>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="death_date" type="xs:date"/>
+      <xs:element name="death_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="death_type_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="cause_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="cause_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="cause_source_concept_id" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="NOTE" type="NOTE"/>
+  <xs:complexType name="NOTE">
+    <xs:sequence>
+      <xs:element name="note_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="note_date" type="xs:date"/>
+      <xs:element name="note_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="note_type_concept_id" type="xs:int"/>
+      <xs:element name="note_class_concept_id" type="xs:int"/>
+      <xs:element name="note_title" type="xs:string" minOccurs="0"> <!-- varchar(250) -->
+      </xs:element>
+      <xs:element name="note_text" type="xs:string"/>
+      <xs:element name="encoding_concept_id" type="xs:int"/>
+      <xs:element name="language_concept_id" type="xs:int"/>
+      <xs:element name="provider_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_occurrence_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="visit_detail_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="note_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="note_event_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="note_event_field_concept_id" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="NOTE_NLP" type="NOTE_NLP"/>
+  <xs:complexType name="NOTE_NLP">
+    <xs:sequence>
+      <xs:element name="note_nlp_id" type="xs:int"/>
+      <xs:element name="note_id" type="xs:int"/>
+      <xs:element name="section_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="snippet" type="xs:string" minOccurs="0"> <!-- varchar(250) -->
+      </xs:element>
+      <xs:element name="offset_" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="lexical_variant" type="xs:string"> <!-- varchar(250) -->
+      </xs:element>
+      <xs:element name="note_nlp_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="note_nlp_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="nlp_system" type="xs:string" minOccurs="0"> <!-- varchar(250) -->
+      </xs:element>
+      <xs:element name="nlp_date" type="xs:date"/>
+      <xs:element name="nlp_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="term_exists" type="xs:string" minOccurs="0"> <!-- varchar(1) -->
+      </xs:element>
+      <xs:element name="term_temporal" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="term_modifiers" type="xs:string" minOccurs="0"> <!-- varchar(2000) -->
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="SPECIMEN" type="SPECIMEN"/>
+  <xs:complexType name="SPECIMEN">
+    <xs:sequence>
+      <xs:element name="specimen_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="specimen_concept_id" type="xs:int"/>
+      <xs:element name="specimen_type_concept_id" type="xs:int"/>
+      <xs:element name="specimen_date" type="xs:date"/>
+      <xs:element name="specimen_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="quantity" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="unit_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="anatomic_site_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="disease_status_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="specimen_source_id" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="specimen_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="unit_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="anatomic_site_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="disease_status_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="FACT_RELATIONSHIP" type="FACT_RELATIONSHIP"/>
+  <xs:complexType name="FACT_RELATIONSHIP">
+    <xs:sequence>
+      <xs:element name="domain_concept_id_1" type="xs:int"/>
+      <xs:element name="fact_id_1" type="xs:int"/>
+      <xs:element name="domain_concept_id_2" type="xs:int"/>
+      <xs:element name="fact_id_2" type="xs:int"/>
+      <xs:element name="relationship_concept_id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ==================================================================== -->
+  <!-- HEALTH SYSTEM DATA TABLES -->
+  <!-- ==================================================================== -->
+
+  <xs:element name="LOCATION" type="LOCATION"/>
+  <xs:complexType name="LOCATION">
+    <xs:sequence>
+      <xs:element name="location_id" type="xs:int"/>
+      <xs:element name="address_1" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="address_2" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="city" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="state" type="xs:string" minOccurs="0"> <!-- varchar(2) -->
+      </xs:element>
+      <xs:element name="zip" type="xs:string" minOccurs="0"> <!-- varchar(9) -->
+      </xs:element>
+      <xs:element name="county" type="xs:string" minOccurs="0"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="location_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="country_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="country_source_value" type="xs:string" minOccurs="0"> <!-- varchar(80) -->
+      </xs:element>
+      <xs:element name="latitude" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="longitude" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="CARE_SITE" type="CARE_SITE"/>
+  <xs:complexType name="CARE_SITE">
+    <xs:sequence>
+      <xs:element name="care_site_id" type="xs:int"/>
+      <xs:element name="care_site_name" type="xs:string" minOccurs="0"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="place_of_service_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="location_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="care_site_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="place_of_service_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="PROVIDER" type="PROVIDER"/>
+  <xs:complexType name="PROVIDER">
+    <xs:sequence>
+      <xs:element name="provider_id" type="xs:int"/>
+      <xs:element name="provider_name" type="xs:string" minOccurs="0"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="npi" type="xs:string" minOccurs="0"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="dea" type="xs:string" minOccurs="0"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="specialty_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="care_site_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="year_of_birth" type="xs:int" minOccurs="0"/>
+      <xs:element name="gender_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="provider_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="specialty_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="specialty_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="gender_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="gender_source_concept_id" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ==================================================================== -->
+  <!-- HEALTH ECONOMICS DATA TABLES -->
+  <!-- ==================================================================== -->
+
+  <xs:element name="PAYER_PLAN_PERIOD" type="PAYER_PLAN_PERIOD"/>
+  <xs:complexType name="PAYER_PLAN_PERIOD">
+    <xs:sequence>
+      <xs:element name="payer_plan_period_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="payer_plan_period_start_date" type="xs:date"/>
+      <xs:element name="payer_plan_period_end_date" type="xs:date"/>
+      <xs:element name="payer_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="payer_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="payer_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="plan_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="plan_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="plan_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="sponsor_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="sponsor_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="sponsor_source_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="family_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="stop_reason_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="stop_reason_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="stop_reason_source_concept_id" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="COST" type="COST"/>
+  <xs:complexType name="COST">
+    <xs:sequence>
+      <xs:element name="cost_id" type="xs:int"/>
+      <xs:element name="cost_event_id" type="xs:int"/>
+      <xs:element name="cost_domain_id" type="xs:string"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="cost_type_concept_id" type="xs:int"/>
+      <xs:element name="currency_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="total_charge" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="total_cost" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="total_paid" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="paid_by_payer" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="paid_by_patient" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="paid_patient_copay" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="paid_patient_coinsurance" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="paid_patient_deductible" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="paid_by_primary" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="paid_ingredient_cost" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="paid_dispensing_fee" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="payer_plan_period_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="amount_allowed" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="revenue_code_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="revenue_code_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="drg_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="drg_source_value" type="xs:string" minOccurs="0"> <!-- varchar(3) -->
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ==================================================================== -->
+  <!-- STANDARDIZED DERIVED ELEMENTS -->
+  <!-- ==================================================================== -->
+
+  <xs:element name="DRUG_ERA" type="DRUG_ERA"/>
+  <xs:complexType name="DRUG_ERA">
+    <xs:sequence>
+      <xs:element name="drug_era_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="drug_concept_id" type="xs:int"/>
+      <xs:element name="drug_era_start_date" type="xs:date"/>
+      <xs:element name="drug_era_end_date" type="xs:date"/>
+      <xs:element name="drug_exposure_count" type="xs:int" minOccurs="0"/>
+      <xs:element name="gap_days" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="DOSE_ERA" type="DOSE_ERA"/>
+  <xs:complexType name="DOSE_ERA">
+    <xs:sequence>
+      <xs:element name="dose_era_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="drug_concept_id" type="xs:int"/>
+      <xs:element name="unit_concept_id" type="xs:int"/>
+      <xs:element name="dose_value" type="xs:decimal"/>
+      <xs:element name="dose_era_start_date" type="xs:date"/>
+      <xs:element name="dose_era_end_date" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="CONDITION_ERA" type="CONDITION_ERA"/>
+  <xs:complexType name="CONDITION_ERA">
+    <xs:sequence>
+      <xs:element name="condition_era_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="condition_concept_id" type="xs:int"/>
+      <xs:element name="condition_era_start_date" type="xs:date"/>
+      <xs:element name="condition_era_end_date" type="xs:date"/>
+      <xs:element name="condition_occurrence_count" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ==================================================================== -->
+  <!-- STANDARDIZED DERIVED ELEMENTS (EPISODES) -->
+  <!-- ==================================================================== -->
+
+  <xs:element name="EPISODE" type="EPISODE"/>
+  <xs:complexType name="EPISODE">
+    <xs:sequence>
+      <xs:element name="episode_id" type="xs:int"/>
+      <xs:element name="person_id" type="xs:int"/>
+      <xs:element name="episode_concept_id" type="xs:int"/>
+      <xs:element name="episode_start_date" type="xs:date"/>
+      <xs:element name="episode_start_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="episode_end_date" type="xs:date" minOccurs="0"/>
+      <xs:element name="episode_end_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="episode_parent_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="episode_number" type="xs:int" minOccurs="0"/>
+      <xs:element name="episode_object_concept_id" type="xs:int"/>
+      <xs:element name="episode_type_concept_id" type="xs:int"/>
+      <xs:element name="episode_source_value" type="xs:string" minOccurs="0"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="episode_source_concept_id" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="EPISODE_EVENT" type="EPISODE_EVENT"/>
+  <xs:complexType name="EPISODE_EVENT">
+    <xs:sequence>
+      <xs:element name="episode_id" type="xs:int"/>
+      <xs:element name="event_id" type="xs:int"/>
+      <xs:element name="episode_event_field_concept_id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ==================================================================== -->
+  <!-- METADATA TABLES -->
+  <!-- ==================================================================== -->
+
+  <xs:element name="METADATA" type="METADATA"/>
+  <xs:complexType name="METADATA">
+    <xs:sequence>
+      <xs:element name="metadata_id" type="xs:int"/>
+      <xs:element name="metadata_concept_id" type="xs:int"/>
+      <xs:element name="metadata_type_concept_id" type="xs:int"/>
+      <xs:element name="name" type="xs:string"> <!-- varchar(250) -->
+      </xs:element>
+      <xs:element name="value_as_string" type="xs:string" minOccurs="0"> <!-- varchar(250) -->
+      </xs:element>
+      <xs:element name="value_as_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="value_as_number" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="metadata_date" type="xs:date" minOccurs="0"/>
+      <xs:element name="metadata_datetime" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="CDM_SOURCE" type="CDM_SOURCE"/>
+  <xs:complexType name="CDM_SOURCE">
+    <xs:sequence>
+      <xs:element name="cdm_source_name" type="xs:string"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="cdm_source_abbreviation" type="xs:string"> <!-- varchar(25) -->
+      </xs:element>
+      <xs:element name="cdm_holder" type="xs:string"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="source_description" type="xs:string" minOccurs="0"/>
+      <xs:element name="source_documentation_reference" type="xs:string" minOccurs="0"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="cdm_etl_reference" type="xs:string" minOccurs="0"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="source_release_date" type="xs:date"/>
+      <xs:element name="cdm_release_date" type="xs:date"/>
+      <xs:element name="cdm_version" type="xs:string" minOccurs="0"> <!-- varchar(10) -->
+      </xs:element>
+      <xs:element name="cdm_version_concept_id" type="xs:int"/>
+      <xs:element name="vocabulary_version" type="xs:string"> <!-- varchar(20) -->
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ==================================================================== -->
+  <!-- STANDARDIZED VOCABULARY TABLES -->
+  <!-- ==================================================================== -->
+
+  <xs:element name="CONCEPT" type="CONCEPT"/>
+  <xs:complexType name="CONCEPT">
+    <xs:sequence>
+      <xs:element name="concept_id" type="xs:int"/>
+      <xs:element name="concept_name" type="xs:string"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="domain_id" type="xs:string"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="vocabulary_id" type="xs:string"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="concept_class_id" type="xs:string"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="standard_concept" type="xs:string" minOccurs="0"> <!-- varchar(1) -->
+      </xs:element>
+      <xs:element name="concept_code" type="xs:string"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="valid_start_date" type="xs:date"/>
+      <xs:element name="valid_end_date" type="xs:date"/>
+      <xs:element name="invalid_reason" type="xs:string" minOccurs="0"> <!-- varchar(1) -->
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="VOCABULARY" type="VOCABULARY"/>
+  <xs:complexType name="VOCABULARY">
+    <xs:sequence>
+      <xs:element name="vocabulary_id" type="xs:string"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="vocabulary_name" type="xs:string"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="vocabulary_reference" type="xs:string" minOccurs="0"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="vocabulary_version" type="xs:string" minOccurs="0"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="vocabulary_concept_id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="DOMAIN" type="DOMAIN"/>
+  <xs:complexType name="DOMAIN">
+    <xs:sequence>
+      <xs:element name="domain_id" type="xs:string"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="domain_name" type="xs:string"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="domain_concept_id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="CONCEPT_CLASS" type="CONCEPT_CLASS"/>
+  <xs:complexType name="CONCEPT_CLASS">
+    <xs:sequence>
+      <xs:element name="concept_class_id" type="xs:string"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="concept_class_name" type="xs:string"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="concept_class_concept_id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="CONCEPT_RELATIONSHIP" type="CONCEPT_RELATIONSHIP"/>
+  <xs:complexType name="CONCEPT_RELATIONSHIP">
+    <xs:sequence>
+      <xs:element name="concept_id_1" type="xs:int"/>
+      <xs:element name="concept_id_2" type="xs:int"/>
+      <xs:element name="relationship_id" type="xs:string"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="valid_start_date" type="xs:date"/>
+      <xs:element name="valid_end_date" type="xs:date"/>
+      <xs:element name="invalid_reason" type="xs:string" minOccurs="0"> <!-- varchar(1) -->
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="RELATIONSHIP" type="RELATIONSHIP"/>
+  <xs:complexType name="RELATIONSHIP">
+    <xs:sequence>
+      <xs:element name="relationship_id" type="xs:string"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="relationship_name" type="xs:string"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="is_hierarchical" type="xs:string"> <!-- varchar(1) -->
+      </xs:element>
+      <xs:element name="defines_ancestry" type="xs:string"> <!-- varchar(1) -->
+      </xs:element>
+      <xs:element name="reverse_relationship_id" type="xs:string"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="relationship_concept_id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="CONCEPT_SYNONYM" type="CONCEPT_SYNONYM"/>
+  <xs:complexType name="CONCEPT_SYNONYM">
+    <xs:sequence>
+      <xs:element name="concept_id" type="xs:int"/>
+      <xs:element name="concept_synonym_name" type="xs:string"> <!-- varchar(1000) -->
+      </xs:element>
+      <xs:element name="language_concept_id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="CONCEPT_ANCESTOR" type="CONCEPT_ANCESTOR"/>
+  <xs:complexType name="CONCEPT_ANCESTOR">
+    <xs:sequence>
+      <xs:element name="ancestor_concept_id" type="xs:int"/>
+      <xs:element name="descendant_concept_id" type="xs:int"/>
+      <xs:element name="min_levels_of_separation" type="xs:int"/>
+      <xs:element name="max_levels_of_separation" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="SOURCE_TO_CONCEPT_MAP" type="SOURCE_TO_CONCEPT_MAP"/>
+  <xs:complexType name="SOURCE_TO_CONCEPT_MAP">
+    <xs:sequence>
+      <xs:element name="source_code" type="xs:string"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="source_concept_id" type="xs:int"/>
+      <xs:element name="source_vocabulary_id" type="xs:string"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="source_code_description" type="xs:string" minOccurs="0"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="target_concept_id" type="xs:int"/>
+      <xs:element name="target_vocabulary_id" type="xs:string"> <!-- varchar(20) -->
+      </xs:element>
+      <xs:element name="valid_start_date" type="xs:date"/>
+      <xs:element name="valid_end_date" type="xs:date"/>
+      <xs:element name="invalid_reason" type="xs:string" minOccurs="0"> <!-- varchar(1) -->
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="DRUG_STRENGTH" type="DRUG_STRENGTH"/>
+  <xs:complexType name="DRUG_STRENGTH">
+    <xs:sequence>
+      <xs:element name="drug_concept_id" type="xs:int"/>
+      <xs:element name="ingredient_concept_id" type="xs:int"/>
+      <xs:element name="amount_value" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="amount_unit_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="numerator_value" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="numerator_unit_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="denominator_value" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="denominator_unit_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="box_size" type="xs:int" minOccurs="0"/>
+      <xs:element name="valid_start_date" type="xs:date"/>
+      <xs:element name="valid_end_date" type="xs:date"/>
+      <xs:element name="invalid_reason" type="xs:string" minOccurs="0"> <!-- varchar(1) -->
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ==================================================================== -->
+  <!-- STANDARDIZED COHORT TABLES -->
+  <!-- ==================================================================== -->
+
+  <xs:element name="COHORT" type="COHORT"/>
+  <xs:complexType name="COHORT">
+    <xs:sequence>
+      <xs:element name="cohort_definition_id" type="xs:int"/>
+      <xs:element name="subject_id" type="xs:int"/>
+      <xs:element name="cohort_start_date" type="xs:date"/>
+      <xs:element name="cohort_end_date" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="COHORT_DEFINITION" type="COHORT_DEFINITION"/>
+  <xs:complexType name="COHORT_DEFINITION">
+    <xs:sequence>
+      <xs:element name="cohort_definition_id" type="xs:int"/>
+      <xs:element name="cohort_definition_name" type="xs:string"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="cohort_definition_description" type="xs:string" minOccurs="0"/>
+      <xs:element name="definition_type_concept_id" type="xs:int"/>
+      <xs:element name="cohort_definition_syntax" type="xs:string" minOccurs="0"/>
+      <xs:element name="subject_concept_id" type="xs:int"/>
+      <xs:element name="cohort_initiation_date" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ==================================================================== -->
+  <!-- ROOT CONTAINER (optional convenience wrapper for bulk exchange)      -->
+  <!-- ==================================================================== -->
+
+  <xs:element name="OMOP_CDM" type="OMOP_CDM"/>
+  <xs:complexType name="OMOP_CDM">
+    <xs:sequence>
+      <xs:element ref="PERSON" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="OBSERVATION_PERIOD" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="VISIT_OCCURRENCE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="VISIT_DETAIL" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="CONDITION_OCCURRENCE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="DRUG_EXPOSURE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="PROCEDURE_OCCURRENCE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="DEVICE_EXPOSURE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="MEASUREMENT" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="OBSERVATION" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="DEATH" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="NOTE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="NOTE_NLP" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="SPECIMEN" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="FACT_RELATIONSHIP" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="LOCATION" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="CARE_SITE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="PROVIDER" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="PAYER_PLAN_PERIOD" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="COST" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="DRUG_ERA" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="DOSE_ERA" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="CONDITION_ERA" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="EPISODE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="EPISODE_EVENT" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="METADATA" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="CDM_SOURCE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="CONCEPT" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="VOCABULARY" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="DOMAIN" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="CONCEPT_CLASS" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="CONCEPT_RELATIONSHIP" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="RELATIONSHIP" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="CONCEPT_SYNONYM" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="CONCEPT_ANCESTOR" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="SOURCE_TO_CONCEPT_MAP" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="DRUG_STRENGTH" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="COHORT" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="COHORT_DEFINITION" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="cdmVersion" type="xs:string" fixed="5.4"/>
+  </xs:complexType>
+
+</xs:schema>

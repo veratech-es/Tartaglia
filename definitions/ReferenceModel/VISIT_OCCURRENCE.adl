@@ -1,0 +1,52 @@
+archetype (adl_version=1.4)
+    OMOP-CDM-VISIT_OCCURRENCE.VISIT_OCCURRENCE.v1
+
+concept
+    [VISITOCCURRENCEat]
+
+language
+    original_language = <[ISO_639-1::EN-US]>
+
+description
+    original_author = <
+        ["original_author"] = <"VeraTech">
+    >
+    lifecycle_state = <"DRAFT">
+    details = <
+        ["EN-US"] = <
+            language = <[ISO_639-1::EN-US]>
+            purpose = <"general archetype for mapping to data sources">
+            copyright = <"Copyright(c)2006-2008 VeraTech">
+            use = <"mapping">
+            misuse = <"as a domain concept">
+        >
+    >
+
+definition
+    VISIT_OCCURRENCE[VISITOCCURRENCEat] occurrences matches {1..1} matches {  -- 
+        visit_occurrence_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        person_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        visit_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        visit_start_date existence matches {1..1} matches {yyyy-mm-dd}
+        visit_start_datetime existence matches {0..1} matches {yyyy-mm-ddThh:mm:ss}
+        visit_end_date existence matches {1..1} matches {yyyy-mm-dd}
+        visit_end_datetime existence matches {0..1} matches {yyyy-mm-ddThh:mm:ss}
+        visit_type_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        provider_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        care_site_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        visit_source_value existence matches {0..1} matches {/.*/}
+        visit_source_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        admitted_from_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        admitted_from_source_value existence matches {0..1} matches {/.*/}
+        discharged_to_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        discharged_to_source_value existence matches {0..1} matches {/.*/}
+        preceding_visit_occurrence_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+    }
+
+ontology
+    term_definitions = <
+        ["EN"] = <
+            items = <
+            >
+        >
+    >

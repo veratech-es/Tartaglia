@@ -1,0 +1,56 @@
+archetype (adl_version=1.4)
+    OMOP-CDM-OBSERVATION.OBSERVATION.v1
+
+concept
+    [OBSERVATIONat]
+
+language
+    original_language = <[ISO_639-1::EN-US]>
+
+description
+    original_author = <
+        ["original_author"] = <"VeraTech">
+    >
+    lifecycle_state = <"DRAFT">
+    details = <
+        ["EN-US"] = <
+            language = <[ISO_639-1::EN-US]>
+            purpose = <"general archetype for mapping to data sources">
+            copyright = <"Copyright(c)2006-2008 VeraTech">
+            use = <"mapping">
+            misuse = <"as a domain concept">
+        >
+    >
+
+definition
+    OBSERVATION[OBSERVATIONat] occurrences matches {1..1} matches {  -- 
+        observation_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        person_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        observation_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        observation_date existence matches {1..1} matches {yyyy-mm-dd}
+        observation_datetime existence matches {0..1} matches {yyyy-mm-ddThh:mm:ss}
+        observation_type_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        value_as_number existence matches {0..1} matches {|>-1.7976931348623157E308..<1.7976931348623157E308|}
+        value_as_string existence matches {0..1} matches {/.*/}
+        value_as_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        qualifier_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        unit_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        provider_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        visit_occurrence_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        visit_detail_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        observation_source_value existence matches {0..1} matches {/.*/}
+        observation_source_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        unit_source_value existence matches {0..1} matches {/.*/}
+        qualifier_source_value existence matches {0..1} matches {/.*/}
+        value_source_value existence matches {0..1} matches {/.*/}
+        observation_event_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        obs_event_field_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+    }
+
+ontology
+    term_definitions = <
+        ["EN"] = <
+            items = <
+            >
+        >
+    >

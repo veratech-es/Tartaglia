@@ -1,0 +1,49 @@
+archetype (adl_version=1.4)
+    OMOP-CDM-NOTE_NLP.NOTE_NLP.v1
+
+concept
+    [NOTENLPat]
+
+language
+    original_language = <[ISO_639-1::EN-US]>
+
+description
+    original_author = <
+        ["original_author"] = <"VeraTech">
+    >
+    lifecycle_state = <"DRAFT">
+    details = <
+        ["EN-US"] = <
+            language = <[ISO_639-1::EN-US]>
+            purpose = <"general archetype for mapping to data sources">
+            copyright = <"Copyright(c)2006-2008 VeraTech">
+            use = <"mapping">
+            misuse = <"as a domain concept">
+        >
+    >
+
+definition
+    NOTE_NLP[NOTENLPat] occurrences matches {1..1} matches {  -- 
+        note_nlp_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        note_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        section_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        snippet existence matches {0..1} matches {/.*/}
+        offset_ existence matches {0..1} matches {/.*/}
+        lexical_variant existence matches {1..1} matches {/.*/}
+        note_nlp_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        note_nlp_source_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        nlp_system existence matches {0..1} matches {/.*/}
+        nlp_date existence matches {1..1} matches {yyyy-mm-dd}
+        nlp_datetime existence matches {0..1} matches {yyyy-mm-ddThh:mm:ss}
+        term_exists existence matches {0..1} matches {/.*/}
+        term_temporal existence matches {0..1} matches {/.*/}
+        term_modifiers existence matches {0..1} matches {/.*/}
+    }
+
+ontology
+    term_definitions = <
+        ["EN"] = <
+            items = <
+            >
+        >
+    >

@@ -1,0 +1,50 @@
+archetype (adl_version=1.4)
+    OMOP-CDM-SPECIMEN.SPECIMEN.v1
+
+concept
+    [SPECIMENat]
+
+language
+    original_language = <[ISO_639-1::EN-US]>
+
+description
+    original_author = <
+        ["original_author"] = <"VeraTech">
+    >
+    lifecycle_state = <"DRAFT">
+    details = <
+        ["EN-US"] = <
+            language = <[ISO_639-1::EN-US]>
+            purpose = <"general archetype for mapping to data sources">
+            copyright = <"Copyright(c)2006-2008 VeraTech">
+            use = <"mapping">
+            misuse = <"as a domain concept">
+        >
+    >
+
+definition
+    SPECIMEN[SPECIMENat] occurrences matches {1..1} matches {  -- 
+        specimen_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        person_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        specimen_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        specimen_type_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        specimen_date existence matches {1..1} matches {yyyy-mm-dd}
+        specimen_datetime existence matches {0..1} matches {yyyy-mm-ddThh:mm:ss}
+        quantity existence matches {0..1} matches {|>-1.7976931348623157E308..<1.7976931348623157E308|}
+        unit_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        anatomic_site_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        disease_status_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        specimen_source_id existence matches {0..1} matches {/.*/}
+        specimen_source_value existence matches {0..1} matches {/.*/}
+        unit_source_value existence matches {0..1} matches {/.*/}
+        anatomic_site_source_value existence matches {0..1} matches {/.*/}
+        disease_status_source_value existence matches {0..1} matches {/.*/}
+    }
+
+ontology
+    term_definitions = <
+        ["EN"] = <
+            items = <
+            >
+        >
+    >

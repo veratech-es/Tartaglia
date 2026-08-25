@@ -1,0 +1,58 @@
+archetype (adl_version=1.4)
+    OMOP-CDM-MEASUREMENT.MEASUREMENT.v1
+
+concept
+    [MEASUREMENTat]
+
+language
+    original_language = <[ISO_639-1::EN-US]>
+
+description
+    original_author = <
+        ["original_author"] = <"VeraTech">
+    >
+    lifecycle_state = <"DRAFT">
+    details = <
+        ["EN-US"] = <
+            language = <[ISO_639-1::EN-US]>
+            purpose = <"general archetype for mapping to data sources">
+            copyright = <"Copyright(c)2006-2008 VeraTech">
+            use = <"mapping">
+            misuse = <"as a domain concept">
+        >
+    >
+
+definition
+    MEASUREMENT[MEASUREMENTat] occurrences matches {1..1} matches {  -- 
+        measurement_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        person_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        measurement_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        measurement_date existence matches {1..1} matches {yyyy-mm-dd}
+        measurement_datetime existence matches {0..1} matches {yyyy-mm-ddThh:mm:ss}
+        measurement_time existence matches {0..1} matches {/.*/}
+        measurement_type_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        operator_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        value_as_number existence matches {0..1} matches {|>-1.7976931348623157E308..<1.7976931348623157E308|}
+        value_as_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        unit_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        range_low existence matches {0..1} matches {|>-1.7976931348623157E308..<1.7976931348623157E308|}
+        range_high existence matches {0..1} matches {|>-1.7976931348623157E308..<1.7976931348623157E308|}
+        provider_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        visit_occurrence_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        visit_detail_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        measurement_source_value existence matches {0..1} matches {/.*/}
+        measurement_source_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        unit_source_value existence matches {0..1} matches {/.*/}
+        unit_source_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        value_source_value existence matches {0..1} matches {/.*/}
+        measurement_event_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        meas_event_field_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+    }
+
+ontology
+    term_definitions = <
+        ["EN"] = <
+            items = <
+            >
+        >
+    >

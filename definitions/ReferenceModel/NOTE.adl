@@ -1,0 +1,51 @@
+archetype (adl_version=1.4)
+    OMOP-CDM-NOTE.NOTE.v1
+
+concept
+    [NOTEat]
+
+language
+    original_language = <[ISO_639-1::EN-US]>
+
+description
+    original_author = <
+        ["original_author"] = <"VeraTech">
+    >
+    lifecycle_state = <"DRAFT">
+    details = <
+        ["EN-US"] = <
+            language = <[ISO_639-1::EN-US]>
+            purpose = <"general archetype for mapping to data sources">
+            copyright = <"Copyright(c)2006-2008 VeraTech">
+            use = <"mapping">
+            misuse = <"as a domain concept">
+        >
+    >
+
+definition
+    NOTE[NOTEat] occurrences matches {1..1} matches {  -- 
+        note_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        person_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        note_date existence matches {1..1} matches {yyyy-mm-dd}
+        note_datetime existence matches {0..1} matches {yyyy-mm-ddThh:mm:ss}
+        note_type_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        note_class_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        note_title existence matches {0..1} matches {/.*/}
+        note_text existence matches {1..1} matches {/.*/}
+        encoding_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        language_concept_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        provider_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        visit_occurrence_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        visit_detail_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        note_source_value existence matches {0..1} matches {/.*/}
+        note_event_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        note_event_field_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+    }
+
+ontology
+    term_definitions = <
+        ["EN"] = <
+            items = <
+            >
+        >
+    >
