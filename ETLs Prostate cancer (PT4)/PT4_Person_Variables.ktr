@@ -823,7 +823,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>C:\Users\benaven\Desktop\Tartaglia\PT4\Error_person.txt</name>
+      <name>C:\Users\benaven\Desktop\Tartaglia\PT4\Logs error\Error_person.txt</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
