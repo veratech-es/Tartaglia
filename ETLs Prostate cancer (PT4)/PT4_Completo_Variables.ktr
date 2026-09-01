@@ -436,11 +436,11 @@
   <notepads>
   </notepads>
   <connection>
-    <name>PT4_Fisabio_img</name>
+    <name>Tartaglia_PT4</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>PT4_Fisabio_img</database>
+    <database>Tartaglia_PT4</database>
     <port>5432</port>
     <username>postgres</username>
     <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
@@ -1078,6 +1078,57 @@
     </GUI>
   </step>
   <step>
+    <name>Añadir constantes 3</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>visitconcept_id</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>9202</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>visittype_id</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>32817</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>256</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Añadir constantes AF</name>
     <type>Constant</type>
     <description/>
@@ -1559,7 +1610,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -1593,6 +1644,74 @@
     <GUI>
       <xloc>368</xloc>
       <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Conexion visit_occurrence</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Tartaglia_PT4</connection>
+    <schema>public</schema>
+    <table>visit_occurrence</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+      <field>
+        <column_name>person_id</column_name>
+        <stream_name>idperson</stream_name>
+      </field>
+      <field>
+        <column_name>visit_occurrence_id</column_name>
+        <stream_name>idvisit</stream_name>
+      </field>
+      <field>
+        <column_name>visit_start_date</column_name>
+        <stream_name>F_RM</stream_name>
+      </field>
+      <field>
+        <column_name>visit_end_date</column_name>
+        <stream_name>F_RM</stream_name>
+      </field>
+      <field>
+        <column_name>visit_type_concept_id</column_name>
+        <stream_name>visittype_id</stream_name>
+      </field>
+      <field>
+        <column_name>visit_concept_id</column_name>
+        <stream_name>visitconcept_id</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1966,6 +2085,48 @@
     <GUI>
       <xloc>368</xloc>
       <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Ordenar pacientes 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>participant_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2465,7 +2626,7 @@
     </partitioning>
     <valuename>idcondition</valuename>
     <use_database>Y</use_database>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <seqname>condition_occurrence_id</seqname>
     <use_counter>N</use_counter>
@@ -2500,7 +2661,7 @@
     </partitioning>
     <valuename>idmeasurement</valuename>
     <use_database>Y</use_database>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <seqname>measurement_id</seqname>
     <use_counter>N</use_counter>
@@ -2535,7 +2696,7 @@
     </partitioning>
     <valuename>idmeasurement</valuename>
     <use_database>Y</use_database>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <seqname>measurement_id</seqname>
     <use_counter>N</use_counter>
@@ -2570,7 +2731,7 @@
     </partitioning>
     <valuename>idobservation</valuename>
     <use_database>Y</use_database>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <seqname>observation_id</seqname>
     <use_counter>N</use_counter>
@@ -2605,7 +2766,7 @@
     </partitioning>
     <valuename>idobservation</valuename>
     <use_database>Y</use_database>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <seqname>observation_id</seqname>
     <use_counter>N</use_counter>
@@ -2640,7 +2801,7 @@
     </partitioning>
     <valuename>idobservation</valuename>
     <use_database>Y</use_database>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <seqname>observation_id</seqname>
     <use_counter>N</use_counter>
@@ -2675,7 +2836,7 @@
     </partitioning>
     <valuename>idprocedure</valuename>
     <use_database>Y</use_database>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <seqname>procedure_id</seqname>
     <use_counter>N</use_counter>
@@ -2710,7 +2871,7 @@
     </partitioning>
     <valuename>idprocedure</valuename>
     <use_database>Y</use_database>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <seqname>procedure_id</seqname>
     <use_counter>N</use_counter>
@@ -2745,7 +2906,7 @@
     </partitioning>
     <valuename>idprocedure</valuename>
     <use_database>Y</use_database>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <seqname>procedure_id</seqname>
     <use_counter>N</use_counter>
@@ -2764,6 +2925,41 @@
     <GUI>
       <xloc>1200</xloc>
       <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Secuencia visit_id</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <valuename>idvisit</valuename>
+    <use_database>Y</use_database>
+    <connection>Tartaglia_PT4</connection>
+    <schema>public</schema>
+    <seqname>visist_occurrence_id</seqname>
+    <use_counter>N</use_counter>
+    <counter_name/>
+    <start_at>1</start_at>
+    <increment_by>1</increment_by>
+    <max_value>999999999</max_value>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2902,7 +3098,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <table>condition_occurrence</table>
     <commit>1000</commit>
@@ -2966,7 +3162,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <table>measurement</table>
     <commit>1000</commit>
@@ -3046,7 +3242,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <table>measurement</table>
     <commit>1000</commit>
@@ -3122,7 +3318,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <table>observation</table>
     <commit>1000</commit>
@@ -3194,7 +3390,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <table>observation</table>
     <commit>1000</commit>
@@ -3266,7 +3462,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <table>observation</table>
     <commit>1000</commit>
@@ -3338,7 +3534,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <table>procedure_occurrence</table>
     <commit>1000</commit>
@@ -3402,7 +3598,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <table>procedure_occurrence</table>
     <commit>1000</commit>
@@ -3466,7 +3662,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <table>procedure_occurrence</table>
     <commit>1000</commit>
@@ -3819,202 +4015,6 @@
     <GUI>
       <xloc>752</xloc>
       <yloc>960</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Añadir constantes 3</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>visitconcept_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>9202</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>visittype_id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>32817</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>256</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Conexion visit_occurrence</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>PT4_Fisabio_img</connection>
-    <schema>public</schema>
-    <table>visit_occurrence</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-      <field>
-        <column_name>person_id</column_name>
-        <stream_name>idperson</stream_name>
-      </field>
-      <field>
-        <column_name>visit_occurrence_id</column_name>
-        <stream_name>idvisit</stream_name>
-      </field>
-      <field>
-        <column_name>visit_start_date</column_name>
-        <stream_name>F_RM</stream_name>
-      </field>
-      <field>
-        <column_name>visit_end_date</column_name>
-        <stream_name>F_RM</stream_name>
-      </field>
-      <field>
-        <column_name>visit_type_concept_id</column_name>
-        <stream_name>visittype_id</stream_name>
-      </field>
-      <field>
-        <column_name>visit_concept_id</column_name>
-        <stream_name>visitconcept_id</stream_name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>112</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Secuencia visit_id</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <valuename>idvisit</valuename>
-    <use_database>Y</use_database>
-    <connection>PT4_Fisabio_img</connection>
-    <schema>public</schema>
-    <seqname>visist_occurrence_id</seqname>
-    <use_counter>N</use_counter>
-    <counter_name/>
-    <start_at>1</start_at>
-    <increment_by>1</increment_by>
-    <max_value>999999999</max_value>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>368</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ordenar pacientes 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>participant_id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

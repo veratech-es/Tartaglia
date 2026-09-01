@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>PT8-IISLAFE_radiology_occurrence_IISLAFE</name>
+    <name>PT8_radiology_occurrence</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -435,66 +435,20 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>9-</note>
-      <xloc>1072</xloc>
-      <yloc>16</yloc>
-      <width>21</width>
-      <heigth>26</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>La tabla radiology_occurrence tiene 536 filas</note>
-      <xloc>1152</xloc>
-      <yloc>16</yloc>
-      <width>243</width>
-      <heigth>26</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
-    <name>PT8_IISLaFe</name>
-    <server>kira</server>
-    <type>MSSQLNATIVE</type>
+    <name>Tartaglia_PT8</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>OMOP</database>
-    <port>1433</port>
-    <username>erpss_omop</username>
-    <password>Encrypted 2be98afc86aa7f2aba616be55cc82bcc9</password>
+    <database>Tartaglia_PT8</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute>
-        <code>EXTRA_OPTION_MSSQLNATIVE.instance</code>
-        <attribute>OMOP</attribute>
-      </attribute>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
         <attribute>N</attribute>
@@ -508,16 +462,8 @@
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>MSSQLUseIntegratedSecurity</code>
-        <attribute>false</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>1433</attribute>
+        <attribute>5432</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -778,12 +724,12 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT8_IISLaFe</connection>
+    <connection>Tartaglia_PT8</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>tartaglia</schema>
+      <schema>public</schema>
       <table>person</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -1487,8 +1433,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT8_IISLaFe</connection>
-    <schema>tartaglia</schema>
+    <connection>Tartaglia_PT8</connection>
+    <schema>public</schema>
     <table>correspondencia_radiology_occurrence</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
@@ -1604,7 +1550,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>\\kabuto\Servicios\SAS_EG\01-ProyectosEGuide\02-Estudios\TARTAGLIA\PT8_Retinopatía Diabética\ETLs VERATECH\Errores flujo PENTAHO\Error_personid_RADIOLOGY_OCCURRENCE.txt</name>
+      <name>C:\Users\benaven\Desktop\Tartaglia\PT8\Logs de error\Error_personid_RADIOLOGY_OCCURRENCE.txt</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -2496,7 +2442,7 @@
     <dynamic_include_subfolders>N</dynamic_include_subfolders>
     <limit>0</limit>
     <file>
-      <name>C:\Users\18459029B\Desktop\retinopatia_s_</name>
+      <name>C:\Users\benaven\Desktop\Tartaglia\PT8\p0082023-sample-PT8-LaFe</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -2529,8 +2475,8 @@
     </partitioning>
     <valuename>radiology_occurrence_id</valuename>
     <use_database>Y</use_database>
-    <connection>PT8_IISLaFe</connection>
-    <schema>tartaglia</schema>
+    <connection>Tartaglia_PT8</connection>
+    <schema>public</schema>
     <seqname>radiology_occurrence_id</seqname>
     <use_counter>N</use_counter>
     <counter_name/>
@@ -2747,8 +2693,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT8_IISLaFe</connection>
-    <schema>tartaglia</schema>
+    <connection>Tartaglia_PT8</connection>
+    <schema>public</schema>
     <table>radiology_occurrence</table>
     <commit>1000</commit>
     <truncate>N</truncate>

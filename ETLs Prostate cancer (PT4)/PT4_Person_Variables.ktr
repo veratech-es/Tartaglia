@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>PT4_Person_VariablesVdH</name>
+    <name>PT4_Person_Variables</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -436,11 +437,11 @@
   <notepads>
   </notepads>
   <connection>
-    <name>PT4_Fisabio_img</name>
+    <name>Tartaglia_PT4</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>PT4_Fisabio_img</database>
+    <database>Tartaglia_PT4</database>
     <port>5432</port>
     <username>postgres</username>
     <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
@@ -666,7 +667,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -714,7 +715,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -1294,7 +1295,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <table>person</table>
     <commit>1000</commit>

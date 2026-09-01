@@ -436,11 +436,11 @@
   <notepads>
   </notepads>
   <connection>
-    <name>PT5 variables image</name>
+    <name>Tartaglia_PT5</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>PT5 variables image</database>
+    <database>Tartaglia_PT5</database>
     <port>5432</port>
     <username>postgres</username>
     <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
@@ -656,7 +656,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT5 variables image</connection>
+    <connection>Tartaglia_PT5</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
@@ -1086,7 +1086,7 @@
     </partitioning>
     <valuename>idobservation</valuename>
     <use_database>Y</use_database>
-    <connection>PT5 variables image</connection>
+    <connection>Tartaglia_PT5</connection>
     <schema>public</schema>
     <seqname>observation_id</seqname>
     <use_counter>N</use_counter>
@@ -1119,7 +1119,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT5 variables image</connection>
+    <connection>Tartaglia_PT5</connection>
     <schema>public</schema>
     <table>observation</table>
     <commit>1000</commit>

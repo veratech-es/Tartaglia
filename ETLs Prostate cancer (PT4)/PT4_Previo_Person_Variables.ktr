@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>PT4_Previo_Person_VariablesVdH</name>
+    <name>PT4_Previo_Person_Variables</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -437,11 +437,11 @@
   <notepads>
   </notepads>
   <connection>
-    <name>PT4_Fisabio_img</name>
+    <name>Tartaglia_PT4</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>PT4_Fisabio_img</database>
+    <database>Tartaglia_PT4</database>
     <port>5432</port>
     <username>postgres</username>
     <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
@@ -554,7 +554,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>336</xloc>
+      <xloc>352</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
@@ -570,7 +570,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -602,7 +602,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
+      <xloc>528</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
@@ -808,7 +808,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
+      <xloc>80</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
@@ -843,7 +843,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
+      <xloc>736</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
@@ -885,7 +885,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
+      <xloc>208</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
@@ -937,7 +937,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>976</xloc>
+      <xloc>1104</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
@@ -955,7 +955,7 @@
     </partitioning>
     <valuename>idperson</valuename>
     <use_database>Y</use_database>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <seqname>person_id</seqname>
     <use_counter>N</use_counter>
@@ -972,7 +972,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
+      <xloc>912</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>

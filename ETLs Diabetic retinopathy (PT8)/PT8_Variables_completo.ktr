@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>PT8_Variables_Completo_IISLaFe_IISLAFE</name>
+    <name>PT8_Variables_Completo</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -435,72 +435,20 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>Juntar 5-6-7</note>
-      <xloc>863</xloc>
-      <yloc>44</yloc>
-      <width>74</width>
-      <heigth>26</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>64</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Visit_occurrence: 533 (comprobado en SAS) 
-Condition_occurrence: 513 en esta ETL - 603 en total
-Measurement: 2376
-Observation: 803 en esta ETL - 1927 en total
-Correspondencia_visitas: 0
-
-</note>
-      <xloc>1104</xloc>
-      <yloc>16</yloc>
-      <width>284</width>
-      <heigth>120</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
-    <name>PT8_IISLaFe</name>
-    <server>kira</server>
-    <type>MSSQLNATIVE</type>
+    <name>Tartaglia_PT8</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>OMOP</database>
-    <port>1433</port>
-    <username>erpss_omop</username>
-    <password>Encrypted 2be98afc86aa7f2aba616be55cc82bcc9</password>
+    <database>Tartaglia_PT8</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute>
-        <code>EXTRA_OPTION_MSSQLNATIVE.instance</code>
-        <attribute>OMOP</attribute>
-      </attribute>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
         <attribute>N</attribute>
@@ -514,16 +462,8 @@ Correspondencia_visitas: 0
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>MSSQLUseIntegratedSecurity</code>
-        <attribute>false</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>1433</attribute>
+        <attribute>5432</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -1283,12 +1223,12 @@ Correspondencia_visitas: 0
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT8_IISLaFe</connection>
+    <connection>Tartaglia_PT8</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>tartaglia</schema>
+      <schema>public</schema>
       <table>person</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -1607,8 +1547,8 @@ Correspondencia_visitas: 0
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT8_IISLaFe</connection>
-    <schema>tartaglia</schema>
+    <connection>Tartaglia_PT8</connection>
+    <schema>public</schema>
     <table>condition_occurrence</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -1675,8 +1615,8 @@ Correspondencia_visitas: 0
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT8_IISLaFe</connection>
-    <schema>tartaglia</schema>
+    <connection>Tartaglia_PT8</connection>
+    <schema>public</schema>
     <table>measurement</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -1755,8 +1695,8 @@ Correspondencia_visitas: 0
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT8_IISLaFe</connection>
-    <schema>tartaglia</schema>
+    <connection>Tartaglia_PT8</connection>
+    <schema>public</schema>
     <table>observation</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -1827,8 +1767,8 @@ Correspondencia_visitas: 0
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT8_IISLaFe</connection>
-    <schema>tartaglia</schema>
+    <connection>Tartaglia_PT8</connection>
+    <schema>public</schema>
     <table>visit_occurrence</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -3387,8 +3327,8 @@ Correspondencia_visitas: 0
     </partitioning>
     <valuename>idcondition</valuename>
     <use_database>Y</use_database>
-    <connection>PT8_IISLaFe</connection>
-    <schema>tartaglia</schema>
+    <connection>Tartaglia_PT8</connection>
+    <schema>public</schema>
     <seqname>condition_occurrence_id</seqname>
     <use_counter>N</use_counter>
     <counter_name/>
@@ -3422,8 +3362,8 @@ Correspondencia_visitas: 0
     </partitioning>
     <valuename>idmeasurement</valuename>
     <use_database>Y</use_database>
-    <connection>PT8_IISLaFe</connection>
-    <schema>tartaglia</schema>
+    <connection>Tartaglia_PT8</connection>
+    <schema>public</schema>
     <seqname>measurement_id</seqname>
     <use_counter>N</use_counter>
     <counter_name/>
@@ -3457,8 +3397,8 @@ Correspondencia_visitas: 0
     </partitioning>
     <valuename>idobservation</valuename>
     <use_database>Y</use_database>
-    <connection>PT8_IISLaFe</connection>
-    <schema>tartaglia</schema>
+    <connection>Tartaglia_PT8</connection>
+    <schema>public</schema>
     <seqname>observation_id</seqname>
     <use_counter>N</use_counter>
     <counter_name/>
@@ -3492,8 +3432,8 @@ Correspondencia_visitas: 0
     </partitioning>
     <valuename>idvisit</valuename>
     <use_database>Y</use_database>
-    <connection>PT8_IISLaFe</connection>
-    <schema>tartaglia</schema>
+    <connection>Tartaglia_PT8</connection>
+    <schema>public</schema>
     <seqname>visist_occurrence_id</seqname>
     <use_counter>N</use_counter>
     <counter_name/>
@@ -3756,7 +3696,7 @@ Correspondencia_visitas: 0
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\Users\18459029B\Desktop\[PT8] ETLS IISLaFe (carpeta compartida)\RETINOS_PENTAHO_V2_copia.csv</filename>
+    <filename>C:\Users\benaven\Desktop\Tartaglia\PT8\Variables\Pacientes_retinos.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>

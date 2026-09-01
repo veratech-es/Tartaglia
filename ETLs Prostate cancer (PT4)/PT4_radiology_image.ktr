@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>PT8-IISLAFE_radiology_image</name>
+    <name>PT4_radiology_image</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -437,11 +437,11 @@
   <notepads>
   </notepads>
   <connection>
-    <name>PT4_Fisabio_img</name>
+    <name>Tartaglia_PT4</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>PT4_Fisabio_img</database>
+    <database>Tartaglia_PT4</database>
     <port>5432</port>
     <username>postgres</username>
     <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
@@ -858,7 +858,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -906,7 +906,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -954,7 +954,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -1002,7 +1002,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <table>radiology_image</table>
     <commit>1000</commit>
@@ -1102,7 +1102,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <table>observation</table>
     <commit>1000</commit>
@@ -1916,7 +1916,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <table>correspondencia_radiology_image</table>
     <commit>1000</commit>
@@ -2539,6 +2539,7 @@
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
     <defaultPathLeafToNull>Y</defaultPathLeafToNull>
+    <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
       <name/>
@@ -2830,11 +2831,9 @@
     <fields>
       <field>
         <name>image_filepath</name>
-        <rename/>
       </field>
       <field>
         <name>observation_id</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -3059,6 +3058,48 @@
     <GUI>
       <xloc>1216</xloc>
       <yloc>688</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Ordenar imagefilepath 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>image_filepath</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3539,7 +3580,7 @@
     </partitioning>
     <valuename>radiology_image_id</valuename>
     <use_database>Y</use_database>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <seqname>radiology_image_id</seqname>
     <use_counter>N</use_counter>
@@ -3574,7 +3615,7 @@
     </partitioning>
     <valuename>observation_id</valuename>
     <use_database>Y</use_database>
-    <connection>PT4_Fisabio_img</connection>
+    <connection>Tartaglia_PT4</connection>
     <schema>public</schema>
     <seqname>observation_id</seqname>
     <use_counter>N</use_counter>
@@ -3934,48 +3975,6 @@
     <GUI>
       <xloc>528</xloc>
       <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ordenar imagefilepath 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>image_filepath</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1296</xloc>
-      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

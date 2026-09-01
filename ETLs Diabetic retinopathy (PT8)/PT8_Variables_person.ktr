@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>PT8_Variables_person_IISLAFE</name>
+    <name>PT8_Variables_person</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -435,66 +435,20 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>2-</note>
-      <xloc>400</xloc>
-      <yloc>48</yloc>
-      <width>21</width>
-      <heigth>26</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>64</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>La tabla person tiene 513 filas</note>
-      <xloc>464</xloc>
-      <yloc>48</yloc>
-      <width>165</width>
-      <heigth>26</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
-    <name>PT8_IISLaFe</name>
-    <server>kira</server>
-    <type>MSSQLNATIVE</type>
+    <name>Tartaglia_PT8</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>OMOP</database>
-    <port>1433</port>
-    <username>erpss_omop</username>
-    <password>Encrypted 2be98afc86aa7f2aba616be55cc82bcc9</password>
+    <database>Tartaglia_PT8</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute>
-        <code>EXTRA_OPTION_MSSQLNATIVE.instance</code>
-        <attribute>OMOP</attribute>
-      </attribute>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
         <attribute>N</attribute>
@@ -508,16 +462,8 @@
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>MSSQLUseIntegratedSecurity</code>
-        <attribute>false</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>1433</attribute>
+        <attribute>5432</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -714,12 +660,12 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT8_IISLaFe</connection>
+    <connection>Tartaglia_PT8</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>tartaglia</schema>
+      <schema>public</schema>
       <table>correspondencia_pacientes</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -762,12 +708,12 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT8_IISLaFe</connection>
+    <connection>Tartaglia_PT8</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>tartaglia</schema>
+      <schema>public</schema>
       <table>person</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -1158,7 +1104,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>\\kabuto\Servicios\SAS_EG\01-ProyectosEGuide\02-Estudios\TARTAGLIA\PT8_Retinopatía Diabética\ETLs VERATECH\Errores flujo PENTAHO\Error_person.txt</name>
+      <name>C:\Users\benaven\Desktop\Tartaglia\PT8\Logs de error\Error_person.txt</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>Y</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -1237,8 +1183,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PT8_IISLaFe</connection>
-    <schema>tartaglia</schema>
+    <connection>Tartaglia_PT8</connection>
+    <schema>public</schema>
     <table>person</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -1384,7 +1330,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\Users\18459029B\Desktop\[PT8] ETLS IISLaFe (carpeta compartida)\RETINOS_PENTAHO_V2_copia.csv</filename>
+    <filename>C:\Users\benaven\Desktop\Tartaglia\PT8\Variables\Pacientes_retinos.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
