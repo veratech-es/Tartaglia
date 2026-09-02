@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  XML Schema (XSD) for the OMOP CDM Image / Radiology Extension
+  For every table, both a top-level xs:element and its matching xs:complexType
+  are declared, e.g.:
+      <xs:element name="RADIOLOGY_OCCURRENCE" type="RADIOLOGY_OCCURRENCE"/>
+      <xs:complexType name="RADIOLOGY_OCCURRENCE">...</xs:complexType>
+
+  NOT NULL columns are required (minOccurs="1", the xs:element default); nullable columns carry minOccurs="0".
+  SQL types are mapped directly to standard XSD built-in types:
+    BIGINT           -> xs:long
+    INT / INTEGER    -> xs:int
+    FLOAT            -> xs:double
+    VARCHAR(n)       -> xs:string  (original length noted as an XML comment)
+    VARCHAR / VARCHAR(max) (unbounded) -> xs:string
+    DATE             -> xs:date
+    TIMESTAMP        -> xs:dateTime
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:omopimg="http://ohdsi.org/omop/cdm/5.4/imaging"
+           targetNamespace="http://ohdsi.org/omop/cdm/5.4/imaging"
+           xmlns="http://ohdsi.org/omop/cdm/5.4/imaging"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           version="5.4-imaging">
+
+  <!-- ==================================================================== -->
+  <!-- OMOP IMAGE / RADIOLOGY EXTENSION TABLES                              -->
+  <!-- ==================================================================== -->
+
+  <!-- ==================================================================== -->
+  <!-- RADIOLOGY EXTENSION TABLES (legacy radiology model) -->
+  <!-- ==================================================================== -->
+
+  <xs:element name="RADIOLOGY_OCCURRENCE" type="RADIOLOGY_OCCURRENCE"/>
+  <xs:complexType name="RADIOLOGY_OCCURRENCE">
+    <xs:sequence>
+      <xs:element name="radiology_occurrence_id" type="xs:long"> <!-- PK -->
+      </xs:element>
+      <xs:element name="radiology_occurrence_date" type="xs:date"/>
+      <xs:element name="radiology_occurrence_datetime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="person_id" type="xs:long"/>
+      <xs:element name="device_concept_id" type="xs:string"> <!-- varchar(25) -->
+      </xs:element>
+      <xs:element name="radiology_modality_concept" type="xs:string"> <!-- varchar(10) -->
+      </xs:element>
+      <xs:element name="person_orientation_concept" type="xs:string" minOccurs="0"> <!-- varchar(10) -->
+      </xs:element>
+      <xs:element name="radiology_protocol_concept_id" type="xs:string"> <!-- varchar(64) -->
+      </xs:element>
+      <xs:element name="image_total_count" type="xs:int"/>
+      <xs:element name="anatomic_site_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="radiology_comment" type="xs:string" minOccurs="0"> <!-- varchar(8000) -->
+      </xs:element>
+      <xs:element name="image_dosage_unit_concept" type="xs:string" minOccurs="0"> <!-- varchar(4) -->
+      </xs:element>
+      <xs:element name="dosage_value_as_number" type="xs:double" minOccurs="0"/>
+      <xs:element name="image_exposure_time_unit_concept" type="xs:string" minOccurs="0"> <!-- varchar(5) -->
+      </xs:element>
+      <xs:element name="image_exposure_time" type="xs:double" minOccurs="0"/>
+      <xs:element name="radiology_dirpath" type="xs:string"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="visit_occurrence_id" type="xs:long" minOccurs="0"/>
+      <xs:element name="device_manufacturer" type="xs:string" minOccurs="0"/>
+      <xs:element name="series_total_count" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="RADIOLOGY_IMAGE" type="RADIOLOGY_IMAGE"/>
+  <xs:complexType name="RADIOLOGY_IMAGE">
+    <xs:sequence>
+      <xs:element name="radiology_image_id" type="xs:long"> <!-- PK -->
+      </xs:element>
+      <xs:element name="radiology_occurrence_id" type="xs:long"/>
+      <xs:element name="person_id" type="xs:long"/>
+      <xs:element name="person_orientation_concept" type="xs:string"> <!-- varchar(50) -->
+      </xs:element>
+      <xs:element name="image_type" type="xs:string" minOccurs="0"> <!-- varchar(500) -->
+      </xs:element>
+      <xs:element name="radiology_phase_concept" type="xs:string" minOccurs="0"> <!-- varchar(32) -->
+      </xs:element>
+      <xs:element name="image_no" type="xs:int"/>
+      <xs:element name="phase_total_no" type="xs:int" minOccurs="0"/>
+      <xs:element name="image_resolution_rows" type="xs:int" minOccurs="0"/>
+      <xs:element name="image_resolution_columns" type="xs:int" minOccurs="0"/>
+      <xs:element name="image_window_level_center" type="xs:string" minOccurs="0"> <!-- varchar(25) -->
+      </xs:element>
+      <xs:element name="image_window_level_width" type="xs:string" minOccurs="0"> <!-- varchar(25) -->
+      </xs:element>
+      <xs:element name="image_slice_thickness" type="xs:double" minOccurs="0"/>
+      <xs:element name="image_filepath" type="xs:string"> <!-- varchar(255) -->
+      </xs:element>
+      <xs:element name="radiology_series_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="body_part_source_value" type="xs:string" minOccurs="0"/>
+      <xs:element name="laterality_concept_id" type="xs:string" minOccurs="0"/>
+      <xs:element name="series_type_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="series_type_source_value" type="xs:string" minOccurs="0"/>
+      <xs:element name="series_total_number" type="xs:int" minOccurs="0"/>
+      <xs:element name="series_serial_number" type="xs:int" minOccurs="0"/>
+      <xs:element name="condition_occurrence_id" type="xs:long" minOccurs="0"/>
+      <xs:element name="observation_id" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ==================================================================== -->
+  <!-- IMAGE EXTENSION TABLES (current OMOP Image Extension) -->
+  <!-- ==================================================================== -->
+
+  <xs:element name="IMAGE_OCCURRENCE" type="IMAGE_OCCURRENCE"/>
+  <xs:complexType name="IMAGE_OCCURRENCE">
+    <xs:sequence>
+      <xs:element name="image_occurrence_id" type="xs:long"> <!-- PK -->
+      </xs:element>
+      <xs:element name="person_id" type="xs:long"/>
+      <xs:element name="procedure_occurrence_id" type="xs:long"/>
+      <xs:element name="visit_occurrence_id" type="xs:long" minOccurs="0"/>
+      <xs:element name="anatomic_site_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="wadors_uri" type="xs:string" minOccurs="0"/>
+      <xs:element name="local_path" type="xs:string"/>
+      <xs:element name="image_occurrence_date" type="xs:date"/>
+      <xs:element name="image_study_uid" type="xs:string"> <!-- varchar(250) -->
+      </xs:element>
+      <xs:element name="image_series_uid" type="xs:string"> <!-- varchar(250) -->
+      </xs:element>
+      <xs:element name="modality_concept_id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="IMAGE_FEATURE" type="IMAGE_FEATURE"/>
+  <xs:complexType name="IMAGE_FEATURE">
+    <xs:sequence>
+      <xs:element name="image_feature_id" type="xs:long"> <!-- PK -->
+      </xs:element>
+      <xs:element name="person_id" type="xs:long"/>
+      <xs:element name="image_occurrence_id" type="xs:long"/>
+      <xs:element name="table_concept_id" type="xs:int"/>
+      <xs:element name="table_row_id" type="xs:int"/>
+      <xs:element name="image_feature_concept_id" type="xs:int"/>
+      <xs:element name="image_feature_type_concept_id" type="xs:int"/>
+      <xs:element name="image_finding_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="image_finding_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="anatomic_site_concept_id" type="xs:int" minOccurs="0"/>
+      <xs:element name="alg_system" type="xs:string" minOccurs="0"/>
+      <xs:element name="alg_datetime" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ==================================================================== -->
+  <!-- ROOT CONTAINER (optional convenience wrapper for bulk exchange)      -->
+  <!-- ==================================================================== -->
+
+  <xs:element name="OMOP_CDM_IMAGING" type="OMOP_CDM_IMAGING"/>
+  <xs:complexType name="OMOP_CDM_IMAGING">
+    <xs:sequence>
+      <xs:element ref="RADIOLOGY_OCCURRENCE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="RADIOLOGY_IMAGE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="IMAGE_OCCURRENCE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="IMAGE_FEATURE" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="extensionVersion" type="xs:string" fixed="5.4-imaging"/>
+  </xs:complexType>
+
+</xs:schema>

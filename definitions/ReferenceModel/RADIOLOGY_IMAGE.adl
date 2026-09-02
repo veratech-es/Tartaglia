@@ -1,0 +1,58 @@
+archetype (adl_version=1.4)
+    OMOP-IMAGE-RADIOLOGY_IMAGE.RADIOLOGY_IMAGE.v1
+
+concept
+    [RADIOLOGYIMAGEat]
+
+language
+    original_language = <[ISO_639-1::EN-US]>
+
+description
+    original_author = <
+        ["original_author"] = <"VeraTech">
+    >
+    lifecycle_state = <"DRAFT">
+    details = <
+        ["EN-US"] = <
+            language = <[ISO_639-1::EN-US]>
+            purpose = <"general archetype for mapping to data sources">
+            copyright = <"Copyright(c)2006-2008 VeraTech">
+            use = <"mapping">
+            misuse = <"as a domain concept">
+        >
+    >
+
+definition
+    RADIOLOGY_IMAGE[RADIOLOGYIMAGEat] occurrences matches {1..1} matches {  -- 
+        radiology_image_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        radiology_occurrence_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        person_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        person_orientation_concept existence matches {1..1} matches {/.*/}
+        image_type existence matches {0..1} matches {/.*/}
+        radiology_phase_concept existence matches {0..1} matches {/.*/}
+        image_no existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        phase_total_no existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        image_resolution_rows existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        image_resolution_columns existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        image_window_level_center existence matches {0..1} matches {/.*/}
+        image_window_level_width existence matches {0..1} matches {/.*/}
+        image_slice_thickness existence matches {0..1} matches {|>-1.7976931348623157E308..<1.7976931348623157E308|}
+        image_filepath existence matches {1..1} matches {/.*/}
+        radiology_series_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        body_part_source_value existence matches {0..1} matches {/.*/}
+        laterality_concept_id existence matches {0..1} matches {/.*/}
+        series_type_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        series_type_source_value existence matches {0..1} matches {/.*/}
+        series_total_number existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        series_serial_number existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        condition_occurrence_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        observation_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+    }
+
+ontology
+    term_definitions = <
+        ["EN"] = <
+            items = <
+            >
+        >
+    >

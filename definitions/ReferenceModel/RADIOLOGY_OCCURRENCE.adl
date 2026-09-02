@@ -1,0 +1,54 @@
+archetype (adl_version=1.4)
+    OMOP-IMAGE-RADIOLOGY_OCCURRENCE.RADIOLOGY_OCCURRENCE.v1
+
+concept
+    [RADIOLOGYOCCURRENCEat]
+
+language
+    original_language = <[ISO_639-1::EN-US]>
+
+description
+    original_author = <
+        ["original_author"] = <"VeraTech">
+    >
+    lifecycle_state = <"DRAFT">
+    details = <
+        ["EN-US"] = <
+            language = <[ISO_639-1::EN-US]>
+            purpose = <"general archetype for mapping to data sources">
+            copyright = <"Copyright(c)2006-2008 VeraTech">
+            use = <"mapping">
+            misuse = <"as a domain concept">
+        >
+    >
+
+definition
+    RADIOLOGY_OCCURRENCE[RADIOLOGYOCCURRENCEat] occurrences matches {1..1} matches {  -- 
+        radiology_occurrence_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        radiology_occurrence_date existence matches {1..1} matches {yyyy-mm-dd}
+        radiology_occurrence_datetime existence matches {0..1} matches {yyyy-mm-ddThh:mm:ss}
+        person_id existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        device_concept_id existence matches {1..1} matches {/.*/}
+        radiology_modality_concept existence matches {1..1} matches {/.*/}
+        person_orientation_concept existence matches {0..1} matches {/.*/}
+        radiology_protocol_concept_id existence matches {1..1} matches {/.*/}
+        image_total_count existence matches {1..1} matches {|>-2147483647..<2147483647|}
+        anatomic_site_concept_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        radiology_comment existence matches {0..1} matches {/.*/}
+        image_dosage_unit_concept existence matches {0..1} matches {/.*/}
+        dosage_value_as_number existence matches {0..1} matches {|>-1.7976931348623157E308..<1.7976931348623157E308|}
+        image_exposure_time_unit_concept existence matches {0..1} matches {/.*/}
+        image_exposure_time existence matches {0..1} matches {|>-1.7976931348623157E308..<1.7976931348623157E308|}
+        radiology_dirpath existence matches {1..1} matches {/.*/}
+        visit_occurrence_id existence matches {0..1} matches {|>-2147483647..<2147483647|}
+        device_manufacturer existence matches {0..1} matches {/.*/}
+        series_total_count existence matches {0..1} matches {|>-2147483647..<2147483647|}
+    }
+
+ontology
+    term_definitions = <
+        ["EN"] = <
+            items = <
+            >
+        >
+    >
