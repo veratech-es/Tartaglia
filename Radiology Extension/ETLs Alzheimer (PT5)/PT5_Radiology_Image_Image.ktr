@@ -434,6 +434,119 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>image_type
+person_orientation_concept
+image_resolution_rows
+image_resolution_columns
+image_window_level_center
+image_window_level_width
+image_slice_thickness</note>
+      <xloc>32</xloc>
+      <yloc>16</yloc>
+      <width>195</width>
+      <heigth>150</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>image_filepath
+image_no</note>
+      <xloc>288</xloc>
+      <yloc>128</yloc>
+      <width>110</width>
+      <heigth>50</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>radiology_occurrence_date
+note</note>
+      <xloc>16</xloc>
+      <yloc>592</yloc>
+      <width>188</width>
+      <heigth>50</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Trastorno neurocognitivo leve</note>
+      <xloc>912</xloc>
+      <yloc>704</yloc>
+      <width>207</width>
+      <heigth>30</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Quejas subjetivas de memoria</note>
+      <xloc>912</xloc>
+      <yloc>944</yloc>
+      <width>209</width>
+      <heigth>30</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>Tartaglia_PT5</name>
@@ -709,11 +822,11 @@
     </hop>
     <hop>
       <from>Paciente no nulo </from>
-      <to>Ordenar imagefilepath 2 2 2</to>
+      <to>Ordenar imagefilepath</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Ordenar imagefilepath 2 2 2</from>
+      <from>Ordenar imagefilepath</from>
       <to>Unión por image </to>
       <enabled>Y</enabled>
     </hop>
@@ -821,8 +934,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>96</yloc>
+      <xloc>640</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -855,7 +968,7 @@
     </remotesteps>
     <GUI>
       <xloc>336</xloc>
-      <yloc>368</yloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1139,7 +1252,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
+      <xloc>640</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1308,7 +1421,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
+      <xloc>400</xloc>
       <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1698,8 +1811,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>288</yloc>
+      <xloc>160</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1863,7 +1976,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
+      <xloc>224</xloc>
       <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1909,7 +2022,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
+      <xloc>992</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2021,7 +2134,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>512</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2137,8 +2250,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
-      <yloc>528</yloc>
+      <xloc>400</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2225,8 +2338,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>96</yloc>
+      <xloc>272</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2241,7 +2354,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Añadir constantes mci</send_true_to>
+    <send_true_to/>
     <send_false_to/>
     <compare>
       <condition>
@@ -2290,7 +2403,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Añadir constantes smc</send_true_to>
+    <send_true_to/>
     <send_false_to/>
     <compare>
       <condition>
@@ -2323,7 +2436,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>912</xloc>
       <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2367,8 +2480,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>192</yloc>
+      <xloc>160</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2446,7 +2559,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
+      <xloc>688</xloc>
       <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2497,8 +2610,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>528</yloc>
+      <xloc>224</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2824,8 +2937,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
-      <yloc>96</yloc>
+      <xloc>384</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2857,8 +2970,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>192</yloc>
+      <xloc>1184</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2932,8 +3045,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>96</yloc>
+      <xloc>768</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2992,7 +3105,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>512</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3025,8 +3138,50 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>544</xloc>
       <yloc>528</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Ordenar imagefilepath</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>image_filepath</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1328</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3069,48 +3224,6 @@
     <GUI>
       <xloc>1328</xloc>
       <yloc>688</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ordenar imagefilepath 2 2 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>image_filepath</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1328</xloc>
-      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3193,8 +3306,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
-      <yloc>96</yloc>
+      <xloc>496</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3235,8 +3348,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>368</yloc>
+      <xloc>160</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3277,8 +3390,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>96</yloc>
+      <xloc>1024</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3319,8 +3432,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1104</xloc>
-      <yloc>240</yloc>
+      <xloc>1184</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3369,7 +3482,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
+      <xloc>800</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3412,7 +3525,7 @@
     </remotesteps>
     <GUI>
       <xloc>1328</xloc>
-      <yloc>96</yloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3453,8 +3566,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
-      <yloc>368</yloc>
+      <xloc>512</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3495,7 +3608,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
+      <xloc>688</xloc>
       <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3511,7 +3624,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Ordenar imagefilepath 2 2 2</send_true_to>
+    <send_true_to>Ordenar imagefilepath</send_true_to>
     <send_false_to>Añadir error id</send_false_to>
     <compare>
       <condition>
@@ -3612,7 +3725,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
+      <xloc>800</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3658,7 +3771,7 @@
     </remotesteps>
     <GUI>
       <xloc>48</xloc>
-      <yloc>96</yloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3808,7 +3921,7 @@
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Ordenar imagefilepath 2 2 2</step1>
+    <step1>Ordenar imagefilepath</step1>
     <step2>Ordenar imagefilepath 2 2</step2>
     <keys_1>
       <key>image_filepath</key>
@@ -3860,7 +3973,7 @@
     </remotesteps>
     <GUI>
       <xloc>1184</xloc>
-      <yloc>96</yloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3948,8 +4061,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
-      <yloc>96</yloc>
+      <xloc>880</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3994,8 +4107,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>240</yloc>
+      <xloc>1184</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4117,7 +4230,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
+      <xloc>640</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>

@@ -435,6 +435,126 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>image_type
+person_orientation_concept
+image_resolution_rows
+image_resolution_columns
+image_window_level_center
+image_window_level_width
+image_slice_thickness</note>
+      <xloc>32</xloc>
+      <yloc>16</yloc>
+      <width>195</width>
+      <heigth>150</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>image_filepath
+image_no
+note</note>
+      <xloc>112</xloc>
+      <yloc>288</yloc>
+      <width>110</width>
+      <heigth>70</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>radiology_occurrence_date</note>
+      <xloc>64</xloc>
+      <yloc>544</yloc>
+      <width>188</width>
+      <heigth>30</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Estructura de la retina del
+ojo izquierdo o derecho</note>
+      <xloc>704</xloc>
+      <yloc>192</yloc>
+      <width>179</width>
+      <heigth>50</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>0 = no RD
+1 = sí RD
+2 = RD leve
+3 = RD moderada
+4 = RD severa
+5 = RD proliferativa
+6 = No evaluable</note>
+      <xloc>848</xloc>
+      <yloc>720</yloc>
+      <width>141</width>
+      <heigth>150</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>Tartaglia_PT8</name>
@@ -916,7 +1036,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1632</xloc>
+      <xloc>1712</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
@@ -964,7 +1084,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1232</xloc>
+      <xloc>1264</xloc>
       <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1012,7 +1132,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1520</xloc>
+      <xloc>1568</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1108,7 +1228,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>912</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1194,7 +1314,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1376</xloc>
+      <xloc>1440</xloc>
       <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1273,7 +1393,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1664</xloc>
+      <xloc>1792</xloc>
       <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1337,7 +1457,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2000</xloc>
+      <xloc>2192</xloc>
       <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1445,7 +1565,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1664</xloc>
+      <xloc>1696</xloc>
       <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1517,7 +1637,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1344</xloc>
+      <xloc>1408</xloc>
       <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1875,8 +1995,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>128</yloc>
+      <xloc>288</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2123,7 +2243,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1664</xloc>
+      <xloc>1696</xloc>
       <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2198,7 +2318,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>576</xloc>
+      <xloc>528</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2279,7 +2399,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1744</xloc>
+      <xloc>1840</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2314,7 +2434,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
+      <xloc>544</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2423,7 +2543,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
+      <xloc>288</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2467,7 +2587,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
+      <xloc>272</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2511,8 +2631,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>128</yloc>
+      <xloc>144</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2641,7 +2761,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
+      <xloc>384</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2682,7 +2802,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
+      <xloc>416</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2715,7 +2835,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1520</xloc>
+      <xloc>1568</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2994,7 +3114,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
+      <xloc>400</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3084,7 +3204,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1504</xloc>
+      <xloc>1600</xloc>
       <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3122,7 +3242,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
+      <xloc>768</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3189,7 +3309,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
+      <xloc>1232</xloc>
       <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3297,7 +3417,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
+      <xloc>560</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3357,7 +3477,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
+      <xloc>640</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3399,7 +3519,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1344</xloc>
+      <xloc>1376</xloc>
       <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3525,7 +3645,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>592</xloc>
+      <xloc>688</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3567,7 +3687,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1392</xloc>
+      <xloc>1408</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3701,7 +3821,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
+      <xloc>736</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3742,7 +3862,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1520</xloc>
+      <xloc>1568</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3863,8 +3983,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>16</xloc>
-      <yloc>32</yloc>
+      <xloc>32</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3898,7 +4018,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
+      <xloc>1984</xloc>
       <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3968,7 +4088,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
+      <xloc>1232</xloc>
       <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4104,7 +4224,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1392</xloc>
+      <xloc>1408</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4193,7 +4313,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
+      <xloc>832</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4233,7 +4353,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
+      <xloc>640</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4282,7 +4402,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1392</xloc>
+      <xloc>1408</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4392,7 +4512,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>912</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

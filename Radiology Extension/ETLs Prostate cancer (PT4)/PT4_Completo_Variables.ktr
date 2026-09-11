@@ -434,6 +434,132 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Cáncer de próstata</note>
+      <xloc>736</xloc>
+      <yloc>96</yloc>
+      <width>135</width>
+      <heigth>30</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Resonancia magnética de próstata</note>
+      <xloc>656</xloc>
+      <yloc>304</yloc>
+      <width>239</width>
+      <heigth>30</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Tacto rectal normal o anormal</note>
+      <xloc>576</xloc>
+      <yloc>544</yloc>
+      <width>209</width>
+      <heigth>30</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Biopsia inicial o repetida</note>
+      <xloc>672</xloc>
+      <yloc>704</yloc>
+      <width>175</width>
+      <heigth>30</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Medición de antígeno prostático específico</note>
+      <xloc>1168</xloc>
+      <yloc>832</yloc>
+      <width>298</width>
+      <heigth>30</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Antecedente familiar de neoplasia maligna de próstata</note>
+      <xloc>1104</xloc>
+      <yloc>976</yloc>
+      <width>376</width>
+      <heigth>30</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>Tartaglia_PT4</name>
@@ -493,7 +619,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Añadir constantes bipsia</from>
+      <from>Añadir constantes biopsia</from>
       <to>Secuencia id_procedure 3</to>
       <enabled>Y</enabled>
     </hop>
@@ -684,7 +810,7 @@
     </hop>
     <hop>
       <from>TB a int</from>
-      <to>Añadir constantes bipsia</to>
+      <to>Añadir constantes biopsia</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -758,7 +884,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>PIR y VP a number 2</from>
+      <from>PIR y VP a number </from>
       <to>Añadir constantes</to>
       <enabled>Y</enabled>
     </hop>
@@ -774,12 +900,12 @@
     </hop>
     <hop>
       <from>Fichero de entrada</from>
-      <to>Ordenar pacientes 2</to>
+      <to>Ordenar pacientes</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Ordenar pacientes 2</from>
-      <to>PIR y VP a number 2</to>
+      <from>Ordenar pacientes</from>
+      <to>PIR y VP a number </to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -851,7 +977,7 @@
     </remotesteps>
     <GUI>
       <xloc>928</xloc>
-      <yloc>960</yloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -956,7 +1082,7 @@
     </remotesteps>
     <GUI>
       <xloc>592</xloc>
-      <yloc>960</yloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -994,8 +1120,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>816</yloc>
+      <xloc>960</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1033,8 +1159,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>880</yloc>
+      <xloc>864</xloc>
+      <yloc>944</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1072,7 +1198,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
+      <xloc>224</xloc>
       <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1123,7 +1249,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
+      <xloc>208</xloc>
       <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1163,7 +1289,7 @@
     </remotesteps>
     <GUI>
       <xloc>1088</xloc>
-      <yloc>960</yloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1277,7 +1403,7 @@
     </remotesteps>
     <GUI>
       <xloc>1200</xloc>
-      <yloc>864</yloc>
+      <yloc>896</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1345,7 +1471,7 @@
     </GUI>
   </step>
   <step>
-    <name>Añadir constantes bipsia</name>
+    <name>Añadir constantes biopsia</name>
     <type>Constant</type>
     <description/>
     <distribute>N</distribute>
@@ -1417,7 +1543,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>752</xloc>
+      <xloc>800</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1507,7 +1633,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>976</xloc>
+      <xloc>1008</xloc>
       <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1710,8 +1836,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>448</yloc>
+      <xloc>208</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1750,7 +1876,7 @@
     </remotesteps>
     <GUI>
       <xloc>832</xloc>
-      <yloc>816</yloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2036,7 +2162,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
+      <xloc>80</xloc>
       <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2089,7 +2215,7 @@
     </GUI>
   </step>
   <step>
-    <name>Ordenar pacientes 2</name>
+    <name>Ordenar pacientes</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -2125,7 +2251,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
+      <xloc>80</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2238,7 +2364,7 @@
     </GUI>
   </step>
   <step>
-    <name>PIR y VP a number 2</name>
+    <name>PIR y VP a number </name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -2294,7 +2420,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
+      <xloc>80</xloc>
       <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2393,7 +2519,7 @@
     </remotesteps>
     <GUI>
       <xloc>592</xloc>
-      <yloc>864</yloc>
+      <yloc>896</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2437,8 +2563,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
-      <yloc>816</yloc>
+      <xloc>1088</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2482,8 +2608,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>880</yloc>
+      <xloc>1024</xloc>
+      <yloc>944</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2538,7 +2664,7 @@
     </remotesteps>
     <GUI>
       <xloc>720</xloc>
-      <yloc>864</yloc>
+      <yloc>896</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2608,7 +2734,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>576</xloc>
       <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2643,7 +2769,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>896</xloc>
+      <xloc>1008</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2713,8 +2839,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1376</xloc>
-      <yloc>864</yloc>
+      <xloc>1408</xloc>
+      <yloc>896</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2783,7 +2909,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1136</xloc>
+      <xloc>1200</xloc>
       <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2819,7 +2945,7 @@
     </remotesteps>
     <GUI>
       <xloc>1264</xloc>
-      <yloc>960</yloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2853,7 +2979,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1312</xloc>
+      <xloc>1264</xloc>
       <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2888,7 +3014,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1136</xloc>
+      <xloc>1200</xloc>
       <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2923,7 +3049,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
+      <xloc>1232</xloc>
       <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3117,12 +3243,16 @@
     <return_field/>
     <fields>
       <field>
-        <column_name>condition_occurrence_id</column_name>
-        <stream_name>idcondition</stream_name>
+        <column_name>condition_type_concept_id</column_name>
+        <stream_name>type</stream_name>
       </field>
       <field>
         <column_name>person_id</column_name>
         <stream_name>idperson</stream_name>
+      </field>
+      <field>
+        <column_name>condition_occurrence_id</column_name>
+        <stream_name>idcondition</stream_name>
       </field>
       <field>
         <column_name>condition_concept_id</column_name>
@@ -3131,10 +3261,6 @@
       <field>
         <column_name>condition_start_date</column_name>
         <stream_name>F_csPC</stream_name>
-      </field>
-      <field>
-        <column_name>condition_type_concept_id</column_name>
-        <stream_name>type</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -3146,7 +3272,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
+      <xloc>1184</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3226,8 +3352,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1568</xloc>
-      <yloc>864</yloc>
+      <xloc>1600</xloc>
+      <yloc>896</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3302,7 +3428,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1456</xloc>
+      <xloc>1488</xloc>
       <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3375,7 +3501,7 @@
     </remotesteps>
     <GUI>
       <xloc>1440</xloc>
-      <yloc>960</yloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3446,7 +3572,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1456</xloc>
+      <xloc>1488</xloc>
       <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3518,7 +3644,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
+      <xloc>1392</xloc>
       <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3646,7 +3772,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
+      <xloc>1392</xloc>
       <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3718,7 +3844,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1376</xloc>
+      <xloc>1408</xloc>
       <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3925,7 +4051,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
+      <xloc>672</xloc>
       <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4014,7 +4140,7 @@
     </remotesteps>
     <GUI>
       <xloc>752</xloc>
-      <yloc>960</yloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
